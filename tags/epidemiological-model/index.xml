@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Epidemiological Model on SR&#39;s Website</title>
+    <link>/tags/epidemiological-model/</link>
+    <description>Recent content in Epidemiological Model on SR&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/epidemiological-model/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>COVID 19 Tracker</title>
+      <link>/projects/covid19-tracker/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/covid19-tracker/</guid>
+      <description>A Dashboard for Prediction and Control assistance and management of resources in view of Covid-19 pandemic, sponsored by IIM, Vishakhapatnam</description>
+    </item>
+    
+    <item>
+      <title>eSIR - An Epidemiological Model incoportating quarantining effect</title>
+      <link>/posts/post7/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/post7/</guid>
+      <description>This is the second post in a series of posts to give a basic understanding of statistical modelling of epidemiology. In this post, we shall explore the performance of stochastic eSIR model. Then, we shall use it to generate projections for the epidemic situation in India.</description>
+    </item>
+    
+    <item>
+      <title>SIR Modelling of COVID-19 Pandemic situation</title>
+      <link>/posts/post6/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/post6/</guid>
+      <description>This is a post to give a basic understanding of statistical modelling of epidemiology. In this post, we shall explore the performance of deterministic SIR model which to be fitted using a least squares procedure. Then, we shall use it to generate projections for the epidemic situation in India</description>
+    </item>
+    
+  </channel>
+</rss>

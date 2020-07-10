@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        
+    COVID 19 Tracker
+
+    </title>
+
+    
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+
+<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    
+    <link rel="stylesheet" href="/css/singleProjectStyle.css">
+
+     
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      <img src="/img/avatar.svg" width="30" height="30" class="d-inline-block align-top rounded-circle mr-2" alt="" loading="lazy">
+      Subhrajyoty Roy
+    </a>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/"> <span> <i class="fa fa-home"></i></span> Home </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/posts/"> <span> <i class="fa fa-edit"></i></span> Posts </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/ed/"> <span> <i class="fa fa-university"></i></span> Education &amp; Work </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/projects/"> <span> <i class="fa fa-tasks"></i></span> Projects </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/publications/"> <span> <i class="fas fa-book"></i></span> Publications </a>
+        </li>
+        
+
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="#contact"> <span> <i class="fas fa-id-card"></i></span> Contact Me </a>
+        </li>
+      </ul>
+
+      
+    </div>
+  </nav>
+
+    <div class="container-fluid mt-5 pt-5">
+        
+    
+    
+        <div class="project-cover" style = "background-image: url('/projects/covid19-tracker/featured.jpg')">
+            
+                <div class = "project-cite-cover">
+                    <p>Cover image taken from <a href="http://covid-tracker.iimv.ac.in:3939/covid/">COVID 19 Dashboard</a></p>
+                </div>
+            
+        </div>
+    
+
+    
+    <div class="project-main-area">
+        <div class="row my-5">
+            <div class="col-md-4">
+                <h1 class="display-4">COVID 19 Tracker</h1>
+                <p class="lead">June, 2020</p>
+                <p class = "text-muted"> A Dashboard for Prediction and Control assistance and management of resources in view of Covid-19 pandemic, sponsored by IIM, Vishakhapatnam </p>
+                
+                    <div class="card text-center">
+                        <h4 class="card-title teamHeader">Team Members</h4>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                
+                                <li class="list-group-item">Anirban Ghatak</li>
+                                
+                                <li class="list-group-item">Shivsanker Singh Patel</li>
+                                
+                                <li class="list-group-item">Subhrajyoty Roy</li>
+                                
+                                <li class="list-group-item">Soham Bonnerjee</li>
+                                
+                              </ul>
+                        </div>
+                    </div>
+                
+                <hr/>
+                <div class = "d-flex flex-row align-items-center tagList">
+                    
+                        <a href="/tags/covid19/" class = "badge badge-secondary badge-pill mr-2">Covid19</a>
+                    
+                        <a href="/tags/epidemiological-model/" class = "badge badge-secondary badge-pill mr-2">Epidemiological Model</a>
+                    
+                        <a href="/tags/r-shiny-application/" class = "badge badge-secondary badge-pill mr-2">R Shiny Application</a>
+                    
+                </div>
+                <hr/>
+                <div class="project-link-list">
+                    <p class="lead font-italic text-center mt-3">Important Links</p>
+                    
+                        
+                            <div class="project-link-item alert alert-primary">
+                                <i class = "fas fa-cogs"></i> <a href="http://covid-tracker.iimv.ac.in:3939/covid/" class = "alert-link">Shiny Dashboard Application</a>
+                            </div>
+                        
+                    
+                        
+                            <div class="project-link-item alert alert-success">
+                                <i class = "fas fa-database"></i> <a href="https://api.covid19india.org/" class = "alert-link">Dataset</a>
+                            </div>
+                        
+                    
+                </div>
+            </div>        
+            <div class="col-md-8 pl-5 border-left">
+                <h1 id="introduction">Introduction</h1>
+<p>&lsquo;COVID-19 Tracker&rsquo; is a web application (dashboard) to visualize COVID-19 situations across different states and districts of India, and is primarily focused on developing prediction for the infected and recovered people under different hypothetical scenarios.</p>
+<p>&lsquo;COVID - 19 Tracker&rsquo; primarily helps predicting the spread of COVID based on a modified extended e-SIR model. It analyzes districts and state levels and represents a prediction of COVID-19 spread for various scenarios with different possible dates of lockdown relaxation, followed by varying degrees of social distancing guidelines that may be adopted post-lockdown. It also proposes possible strategies to contain the COVID-19 spread in each district depending on fraction of the population that will be infected at the peak. That can help to manage the medical supply chain management.</p>
+<p>The dashboard is availble <a href="http://covid-tracker.iimv.ac.in:3939/covid/">here</a></p>
+<h1 id="features">Features</h1>
+<ol>
+<li>
+<p>It is the second dashboard to talk about prediction of COVID-19 situation for India, after PRAKRITI (developed by IIT Delhi).</p>
+</li>
+<li>
+<p>It delivers dynamically updating reproduction rate (the average number of secondary people infected by an infectious person before he/she either recovers or dies) at the district level.</p>
+</li>
+<li>
+<p>It delivers a prediction at a district level which more closely resembles to the assumptions taken by epidemiological models due to similar demographical characteristics.</p>
+</li>
+<li>
+<p>The estimate of the date when infection is at peak is also given. It also warns about a second wave of COVID cases if there is one.</p>
+</li>
+</ol>
+<h1 id="demo">Demo</h1>
+<h2 id="desktop-view">Desktop View</h2>
+<img src="desktop_view.jpg" width = "600px">
+<h2 id="tablet-view">Tablet View</h2>
+<img src="tablet_view.jpg" width = "400px">
+<h2 id="mobile-view">Mobile View</h2>
+<img src="mobile_view.jpg" width = "250px">
+<h2 id="demo-video">Demo Video</h2>
+<p>This video shows an introductory demonstration about how to use the web application (dashboard) and introduces its various components.</p>
+
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src='demo.mp4'></iframe>
+</div>
+  
+<p><strong>Note:</strong> This video does not contain any sound.</p>
+<h1 id="acknowledgements">Acknowledgements</h1>
+<ol>
+<li>
+<p>I thank my mentors Prof. Anirban Ghatak, and Prof. Shivshanker Singh Patel, both of them are currently faculty at IIMV for their useful guidance.</p>
+</li>
+<li>
+<p>I thank my friend Soham Bonnerjee, who was a constant technical support to make it happen.</p>
+</li>
+<li>
+<p>I thank Indian Institute of Management, Vishakhapatnam for their monetary support and their technical support to set up the necessary server to host the application.</p>
+</li>
+<li>
+<p>I thank Prof. Diganta Mukherjee of ISI, Kolkata to introduce me to these amazing mentors.</p>
+</li>
+</ol>
+
+            </div>
+        </div>    
+    </div>
+    
+
+    <div class="container mx-auto my-3">
+        <hr/>
+    </div>
+
+    
+    <div class="row mt-5 mb-5 pb-5">
+        <div class="col-md-4 mx-auto">
+            <a href="/projects/" class="btn btn-block btn-success">See list of my all projects</a>
+        </div>
+    </div>    
+
+    
+    </div>
+    
+    
+
+<footer class="alert alert-dark pt-4 text-center" role="alert">
+    
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://subroy13.github.io" class = "alert-link"> SubRoy13's Personal Website</a>
+    </div>
+    
+    
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.5.2/mermaid.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

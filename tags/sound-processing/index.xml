@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sound processing on SR&#39;s Website</title>
+    <link>/tags/sound-processing/</link>
+    <description>Recent content in Sound processing on SR&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/sound-processing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Onset detection - A new approach to QBH system</title>
+      <link>/publications/onset-detection-arxiv/</link>
+      <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publications/onset-detection-arxiv/</guid>
+      <description>We develop a QBH system based on detection of onsets of a song, within a statistical framework.</description>
+    </item>
+    
+  </channel>
+</rss>

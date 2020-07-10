@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Image Processing on SR&#39;s Website</title>
+    <link>/tags/image-processing/</link>
+    <description>Recent content in Image Processing on SR&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/image-processing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An Introduction to Image Segmentation Techniques</title>
+      <link>/posts/post5/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/post5/</guid>
+      <description>This is post containing a very basic introduction to image segmentation. Here I discuss about gray level thresholding, Otsu&amp;rsquo;s method and Gray level thresholding using Co-occurence matrix</description>
+    </item>
+    
+    <item>
+      <title>Texture Networks</title>
+      <link>/posts/post3/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/post3/</guid>
+      <description>This post talks about a neural network approach to synthesize textures and performing Neural Style Transfer, the art of mixing the content of a picture with the style from another picture.</description>
+    </item>
+    
+  </channel>
+</rss>

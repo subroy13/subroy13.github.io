@@ -1,0 +1,102 @@
+/* SOME COMMON STYLES */
+
+img {
+    max-width: 100%;
+    margin-left:auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+.highlight > pre {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 10px;
+}
+
+.mermaid {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+table {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+figcaption {
+    text-align: center;
+    font-style: italic;
+}
+
+
+/* SOME PROJECT SINGLE PAGE RELATED STYLE */
+
+.project-cover {
+    height: 300px;
+    width: 100%;
+    background-position: center;
+    background-color: #999;
+    background-blend-mode: multiply;
+    background-size: contain;
+}
+
+.project-cite-cover {
+    position: absolute;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background: white;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.project-cite-cover > p {
+    margin: 0;
+}
+
+
+.project-main-area {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-main-area .col-md-8 {
+    text-align: justify;
+}
+
+.teamHeader {
+    font-style: italic;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.teamHeader + .card-body {
+    padding: 0;
+}
+
+.project-link-item {
+    margin: 0.5rem 2rem;
+    padding: 0.25rem 1.25rem;
+}
+
+.tagList {
+    flex-wrap: wrap;
+}
+
+.tagList > .badge {
+    margin-bottom: 0.5rem;
+}
+
+
+
+
+@media (min-width: 768px) {
+    .project-main-area {
+        width: 90%;
+    }
+}
+

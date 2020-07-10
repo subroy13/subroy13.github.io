@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Text Processing on SR&#39;s Website</title>
+    <link>/tags/text-processing/</link>
+    <description>Recent content in Text Processing on SR&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/text-processing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Natural Language Processing in R</title>
+      <link>/projects/nlp-r/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/nlp-r/</guid>
+      <description>Understanding of changes in US president&amp;rsquo;s views by analyzing presidential speech data.</description>
+    </item>
+    
+    <item>
+      <title>Chatbot with Seq2Seq model</title>
+      <link>/projects/seq2seq-chatbot/</link>
+      <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/seq2seq-chatbot/</guid>
+      <description>A simple Chatbot with Seq2Seq model with Bahadau Attention Mechanism trained on Cornell Movie Corpus dataset.</description>
+    </item>
+    
+    <item>
+      <title>A simple Text Prediction Application</title>
+      <link>/projects/text-pred-app/</link>
+      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/text-pred-app/</guid>
+      <description>A simple text prediction application built for Data Science Specialization in Coursera.</description>
+    </item>
+    
+  </channel>
+</rss>

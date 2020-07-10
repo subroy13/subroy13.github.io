@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Subhrajyoty Roy on SR&#39;s Website</title>
+    <link>/</link>
+    <description>Recent content in Subhrajyoty Roy on SR&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>COVID 19 Tracker</title>
+      <link>/projects/covid19-tracker/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/covid19-tracker/</guid>
+      <description>A Dashboard for Prediction and Control assistance and management of resources in view of Covid-19 pandemic, sponsored by IIM, Vishakhapatnam</description>
+    </item>
+    
+    <item>
+      <title>The Information Content of Taster&#39;s Valuation in Tea Auctions of India</title>
+      <link>/publications/information-content-tea-arxiv/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/publications/information-content-tea-arxiv/</guid>
+      <description>Tea auctions across India occur as an ascending open auction, conducted online. Before the auction, a sample of the tea lot is sent to potential bidders and a group of tea tasters. The seller&amp;rsquo;s reserve price is a confidential function of the tea taster&amp;rsquo;s valuation, which also possibly acts as a signal to the bidders.</description>
+    </item>
+    
+    <item>
+      <title>Natural Language Processing in R</title>
+      <link>/projects/nlp-r/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/nlp-r/</guid>
+      <description>Understanding of changes in US president&amp;rsquo;s views by analyzing presidential speech data.</description>
+    </item>
+    
+    <item>
+      <title>eSIR - An Epidemiological Model incoportating quarantining effect</title>
+      <link>/posts/post7/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/post7/</guid>
+      <description>This is the second post in a series of posts to give a basic understanding of statistical modelling of epidemiology. In this post, we shall explore the performance of stochastic eSIR model. Then, we shall use it to generate projections for the epidemic situation in India.</description>
+    </item>
+    
+    <item>
+      <title>SIR Modelling of COVID-19 Pandemic situation</title>
+      <link>/posts/post6/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/post6/</guid>
+      <description>This is a post to give a basic understanding of statistical modelling of epidemiology. In this post, we shall explore the performance of deterministic SIR model which to be fitted using a least squares procedure. Then, we shall use it to generate projections for the epidemic situation in India</description>
+    </item>
+    
+    <item>
+      <title>An Introduction to Image Segmentation Techniques</title>
+      <link>/posts/post5/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/post5/</guid>
+      <description>This is post containing a very basic introduction to image segmentation. Here I discuss about gray level thresholding, Otsu&amp;rsquo;s method and Gray level thresholding using Co-occurence matrix</description>
+    </item>
+    
+    <item>
+      <title>Intuitive Introduction to Differential Geometry</title>
+      <link>/posts/post4/</link>
+      <pubDate>Fri, 31 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/post4/</guid>
+      <description>In this post I talk about some interesting ways to expand the view of Euclidean or Co-ordinate geometry, by introducing the notion of Differential Geometry.</description>
+    </item>
+    
+    <item>
+      <title>Texture Networks</title>
+      <link>/posts/post3/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/post3/</guid>
+      <description>This post talks about a neural network approach to synthesize textures and performing Neural Style Transfer, the art of mixing the content of a picture with the style from another picture.</description>
+    </item>
+    
+    <item>
+      <title>Chatbot with Seq2Seq model</title>
+      <link>/projects/seq2seq-chatbot/</link>
+      <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/seq2seq-chatbot/</guid>
+      <description>A simple Chatbot with Seq2Seq model with Bahadau Attention Mechanism trained on Cornell Movie Corpus dataset.</description>
+    </item>
+    
+    <item>
+      <title>Introduction to Integral Calculus for 10&#43;2 Level</title>
+      <link>/posts/post2/</link>
+      <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/post2/</guid>
+      <description>This is an introductory notes that I made for learning Integral Calculus and some useful tricks to perform integration at Pre-College level.</description>
+    </item>
+    
+    <item>
+      <title>t-SNE: A way to Visualize Multidimensional Dataset</title>
+      <link>/posts/post1/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/post1/</guid>
+      <description>This post is regarding a presentation that I gave associated with D. Basu memorial lecture series.</description>
+    </item>
+    
+    <item>
+      <title>Feasibility of Transparent Price Discovery in Tea through Auction in India</title>
+      <link>/publications/tea-auction-feasibility/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publications/tea-auction-feasibility/</guid>
+      <description>This article examines Tea Auctions in India and forms an idea about the valuations that occur for several of the tea grades, and endeavoured to fit the model determining the final transaction price of the auction based on several relevant factors. The article also looks into the significance of manual valuations as predictors for the final price, and discussed several aspects to do away with the practice of manual valuations.</description>
+    </item>
+    
+    <item>
+      <title>Onset detection - A new approach to QBH system</title>
+      <link>/publications/onset-detection-arxiv/</link>
+      <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publications/onset-detection-arxiv/</guid>
+      <description>We develop a QBH system based on detection of onsets of a song, within a statistical framework.</description>
+    </item>
+    
+    <item>
+      <title>A simple Text Prediction Application</title>
+      <link>/projects/text-pred-app/</link>
+      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/text-pred-app/</guid>
+      <description>A simple text prediction application built for Data Science Specialization in Coursera.</description>
+    </item>
+    
+  </channel>
+</rss>

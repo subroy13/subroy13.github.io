@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        
+    Natural Language Processing in R
+
+    </title>
+
+    
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+
+<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    
+    <link rel="stylesheet" href="/css/singleProjectStyle.css">
+
+     
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      <img src="/img/avatar.svg" width="30" height="30" class="d-inline-block align-top rounded-circle mr-2" alt="" loading="lazy">
+      Subhrajyoty Roy
+    </a>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/"> <span> <i class="fa fa-home"></i></span> Home </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/posts/"> <span> <i class="fa fa-edit"></i></span> Posts </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/ed/"> <span> <i class="fa fa-university"></i></span> Education &amp; Work </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/projects/"> <span> <i class="fa fa-tasks"></i></span> Projects </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/publications/"> <span> <i class="fas fa-book"></i></span> Publications </a>
+        </li>
+        
+
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="#contact"> <span> <i class="fas fa-id-card"></i></span> Contact Me </a>
+        </li>
+      </ul>
+
+      
+    </div>
+  </nav>
+
+    <div class="container-fluid mt-5 pt-5">
+        
+    
+    
+        <div class="project-cover" style = "background-image: url('/projects/nlp-r/featured.jpg')">
+            
+                <div class = "project-cite-cover">
+                    <p>Cover image taken from <a href="https://thiloshon.wordpress.com/category/natural-language-processing/">Thiloshon Nagarajah</a></p>
+                </div>
+            
+        </div>
+    
+
+    
+    <div class="project-main-area">
+        <div class="row my-5">
+            <div class="col-md-4">
+                <h1 class="display-4">Natural Language Processing in R</h1>
+                <p class="lead">April, 2020</p>
+                <p class = "text-muted"> Understanding of changes in US president&rsquo;s views by analyzing presidential speech data. </p>
+                
+                    <div class="card text-center">
+                        <h4 class="card-title teamHeader">Team Members</h4>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                
+                                <li class="list-group-item">Subhrajyoty Roy</li>
+                                
+                                <li class="list-group-item">Ritoban Kundu</li>
+                                
+                              </ul>
+                        </div>
+                    </div>
+                
+                <hr/>
+                <div class = "d-flex flex-row align-items-center tagList">
+                    
+                        <a href="/tags/natural-language-processing/" class = "badge badge-secondary badge-pill mr-2">Natural Language Processing</a>
+                    
+                        <a href="/tags/text-processing/" class = "badge badge-secondary badge-pill mr-2">Text Processing</a>
+                    
+                        <a href="/tags/machine-learning/" class = "badge badge-secondary badge-pill mr-2">Machine Learning</a>
+                    
+                        <a href="/tags/changepoint-analysis/" class = "badge badge-secondary badge-pill mr-2">Changepoint Analysis</a>
+                    
+                </div>
+                <hr/>
+                <div class="project-link-list">
+                    <p class="lead font-italic text-center mt-3">Important Links</p>
+                    
+                        
+                            <div class="project-link-item alert alert-dark">
+                                <i class = "fab fa-github"></i> <a href="https://github.com/subroy13/NLPinR" class = "alert-link">Github Repository</a>
+                            </div>
+                        
+                    
+                        
+                            <div class="project-link-item alert alert-success">
+                                <i class = "fas fa-database"></i> <a href="https://github.com/subroy13/NLPinR/tree/master/datasets/presidential-speeches" class = "alert-link">Dataset</a>
+                            </div>
+                        
+                    
+                </div>
+            </div>        
+            <div class="col-md-8 pl-5 border-left">
+                <h1 id="aim-of-the-project">Aim of the Project</h1>
+<p>This project has several goals:</p>
+<ol>
+<li>Understanding different concepts of Natural Language Processing and implement them in <code>R</code>.</li>
+<li>Understanding the preprocessing part of text mining extensively, so that it can be applied to different native languages, like Bengali, which is my native language.</li>
+<li>Exploring changepoints in literatures by crucially examining the distribution of different words as a time series.</li>
+</ol>
+<h1 id="project-reports">Project Reports</h1>
+<ol>
+<li>
+<p><a href="https://subroy13.github.io/NLPinR/Reports/chapter1"><strong>Text Mining in R :</strong></a> Here, we use the <code>tidytext</code> package in <code>R</code> to understand some basics about text mining, as well as, explore functionalities of the package. We shall look at the usage of <code>tf-idf</code> and how it can be used as a filtration to obtain the important words from the documents of a corpus. Click <a href="https://subroy13.github.io/NLPinR/Reports/chapter1">here</a> to take a look at the report.</p>
+</li>
+<li>
+<p><a href="https://subroy13.github.io/NLPinR/Reports/chapter2"><strong>Text Classification in R :</strong></a> Here, we conduct a text classification task based on the dataset of US president&rsquo;s speeches. We collect the speeches for all United States presidents, and then given an input of a speech, we try to predict whether that president belongs to the Republican or Democratic party. We also wish to understand, which words are more important to make such predictions, as well as understand the latent philosophy of those parties based on corresponding president&rsquo;s speeches. Click <a href="https://subroy13.github.io/NLPinR/Reports/chapter2">here</a> to take a look at the report.</p>
+</li>
+<li>
+<p><a href="https://subroy13.github.io/NLPinR/Reports/chapter3"><strong>Changepoint Analysis in R :</strong></a> Here, we continue with the speech dataset of US presidents, and then perform a simple changepoint detection algorithm to understand the timepoints where lingusitic shifts occur. Click <a href="https://subroy13.github.io/NLPinR/Reports/chapter3">here</a> to take a look at the report.</p>
+</li>
+</ol>
+
+            </div>
+        </div>    
+    </div>
+    
+
+    <div class="container mx-auto my-3">
+        <hr/>
+    </div>
+
+    
+    <div class="row mt-5 mb-5 pb-5">
+        <div class="col-md-4 mx-auto">
+            <a href="/projects/" class="btn btn-block btn-success">See list of my all projects</a>
+        </div>
+    </div>    
+
+    
+    </div>
+    
+    
+
+<footer class="alert alert-dark pt-4 text-center" role="alert">
+    
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://subroy13.github.io" class = "alert-link"> SubRoy13's Personal Website</a>
+    </div>
+    
+    
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.5.2/mermaid.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

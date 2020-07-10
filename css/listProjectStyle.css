@@ -1,0 +1,25 @@
+.project-item {
+    display: flex;
+    align-items: center;
+}
+
+.project-item img {
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    position: relative;
+    left: -20px;
+}
+
+.project-item > .card {
+    width: 100%;
+    box-shadow: 1px 1px 3px black;
+    margin-bottom: 1rem;
+}
+
+.project-item > .card > .card-body {
+    padding: 0.5rem;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+}

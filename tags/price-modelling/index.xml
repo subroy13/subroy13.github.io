@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Price Modelling on SR&#39;s Website</title>
+    <link>/tags/price-modelling/</link>
+    <description>Recent content in Price Modelling on SR&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/price-modelling/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Feasibility of Transparent Price Discovery in Tea through Auction in India</title>
+      <link>/publications/tea-auction-feasibility/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publications/tea-auction-feasibility/</guid>
+      <description>This article examines Tea Auctions in India and forms an idea about the valuations that occur for several of the tea grades, and endeavoured to fit the model determining the final transaction price of the auction based on several relevant factors. The article also looks into the significance of manual valuations as predictors for the final price, and discussed several aspects to do away with the practice of manual valuations.</description>
+    </item>
+    
+  </channel>
+</rss>

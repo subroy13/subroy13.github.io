@@ -1,0 +1,72 @@
+/* Homepage specific CSS style set */
+
+#homeCover {
+    background: #bbb;
+    background-image: url('/img/cover/home.svg');
+    background-size: cover;
+    background-position: bottom;
+    background-blend-mode: screen;
+    background-attachment: fixed;
+}
+
+#avatar-img {
+    filter: drop-shadow(0px 0px 5px black);
+}
+
+#shellCover {
+    background-image: url('/img/Prism.svg');
+    background-attachment: fixed;
+}
+
+#shellCover > .container {
+    max-width: 400px;
+}
+
+.checked {
+    color: orange;
+}
+
+#myWorks {
+    background-image: url('/img/Tortoise-Shell.svg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.myWorkIcons {
+    color: green;
+    border: 5px solid;
+    border-radius: 50%;
+}
+
+
+.box {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    display: block;
+}
+
+.box:hover {
+    transform: scale(1.01);
+    transition-duration: 0.5s;
+}
+
+
+.box-icon {
+    display: table;
+    height: 100px;
+    margin: 0 auto;
+    width: 100px;
+    margin-top: -61px;
+}
+.box-icon span {
+    color: #fff;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+#contact-card {
+    box-shadow: 1px 1px 5px black;
+}

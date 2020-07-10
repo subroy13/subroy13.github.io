@@ -1,0 +1,54 @@
+/* SOME Publication SINGLE PAGE RELATED STYLE */
+
+.publication-cover {
+    height: 300px;
+    width: 100%;
+    background-position: center;
+    background-color: #999;
+    background-blend-mode: multiply;
+    background-size: contain;
+}
+
+.publication-cite-cover {
+    position: absolute;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background: white;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.publication-cite-cover > p {
+    margin: 0;
+}
+
+
+.publication-main-area {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.publication-main-area .col-md-8 {
+    text-align: justify;
+}
+
+.tagList {
+    flex-wrap: wrap;
+}
+
+.tagList > .badge {
+    margin-bottom: 0.5rem;
+}
+
+.publication-name-card {
+    box-shadow: 1px 1px 5px black;
+}
+
+
+@media (min-width: 768px) {
+    .publication-main-area {
+        width: 90%;
+    }
+}

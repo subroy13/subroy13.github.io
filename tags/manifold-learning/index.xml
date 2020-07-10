@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Manifold Learning on SR&#39;s Website</title>
+    <link>/tags/manifold-learning/</link>
+    <description>Recent content in Manifold Learning on SR&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/manifold-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Intuitive Introduction to Differential Geometry</title>
+      <link>/posts/post4/</link>
+      <pubDate>Fri, 31 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/post4/</guid>
+      <description>In this post I talk about some interesting ways to expand the view of Euclidean or Co-ordinate geometry, by introducing the notion of Differential Geometry.</description>
+    </item>
+    
+    <item>
+      <title>t-SNE: A way to Visualize Multidimensional Dataset</title>
+      <link>/posts/post1/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/post1/</guid>
+      <description>This post is regarding a presentation that I gave associated with D. Basu memorial lecture series.</description>
+    </item>
+    
+  </channel>
+</rss>

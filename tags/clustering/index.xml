@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clustering on SR&#39;s Website</title>
+    <link>/tags/clustering/</link>
+    <description>Recent content in Clustering on SR&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 07 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/clustering/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Information Content of Taster&#39;s Valuation in Tea Auctions of India</title>
+      <link>/publications/information-content-tea-arxiv/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/publications/information-content-tea-arxiv/</guid>
+      <description>Tea auctions across India occur as an ascending open auction, conducted online. Before the auction, a sample of the tea lot is sent to potential bidders and a group of tea tasters. The seller&amp;rsquo;s reserve price is a confidential function of the tea taster&amp;rsquo;s valuation, which also possibly acts as a signal to the bidders.</description>
+    </item>
+    
+    <item>
+      <title>An Introduction to Image Segmentation Techniques</title>
+      <link>/posts/post5/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/post5/</guid>
+      <description>This is post containing a very basic introduction to image segmentation. Here I discuss about gray level thresholding, Otsu&amp;rsquo;s method and Gray level thresholding using Co-occurence matrix</description>
+    </item>
+    
+    <item>
+      <title>t-SNE: A way to Visualize Multidimensional Dataset</title>
+      <link>/posts/post1/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/post1/</guid>
+      <description>This post is regarding a presentation that I gave associated with D. Basu memorial lecture series.</description>
+    </item>
+    
+    <item>
+      <title>Feasibility of Transparent Price Discovery in Tea through Auction in India</title>
+      <link>/publications/tea-auction-feasibility/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publications/tea-auction-feasibility/</guid>
+      <description>This article examines Tea Auctions in India and forms an idea about the valuations that occur for several of the tea grades, and endeavoured to fit the model determining the final transaction price of the auction based on several relevant factors. The article also looks into the significance of manual valuations as predictors for the final price, and discussed several aspects to do away with the practice of manual valuations.</description>
+    </item>
+    
+  </channel>
+</rss>

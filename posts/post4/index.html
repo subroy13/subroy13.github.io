@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        
+    Intuitive Introduction to Differential Geometry
+
+    </title>
+
+    
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+
+<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    
+    <link rel="stylesheet" href="/css/singlePostStyle.css">
+
+     
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      <img src="/img/avatar.svg" width="30" height="30" class="d-inline-block align-top rounded-circle mr-2" alt="" loading="lazy">
+      Subhrajyoty Roy
+    </a>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/"> <span> <i class="fa fa-home"></i></span> Home </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/posts/"> <span> <i class="fa fa-edit"></i></span> Posts </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/ed/"> <span> <i class="fa fa-university"></i></span> Education &amp; Work </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/projects/"> <span> <i class="fa fa-tasks"></i></span> Projects </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/publications/"> <span> <i class="fas fa-book"></i></span> Publications </a>
+        </li>
+        
+
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="#contact"> <span> <i class="fas fa-id-card"></i></span> Contact Me </a>
+        </li>
+      </ul>
+
+      
+    </div>
+  </nav>
+
+    <div class="container-fluid mt-5 pt-5">
+        
+    
+    
+        <div class="article-cover d-flex align-items-center" style = "background-image: url('/posts/post4/featured.jpeg')">
+            <div class="container article-header text-white">
+                <div class="pl-5 text-center">
+                    <h1 class="display-4">Intuitive Introduction to Differential Geometry</h1>
+                    <blockquote class="blockquote">
+                        <p class="mb-0">Subhrajyoty Roy</p>
+                        <p class="mb-0">31 January, 2020 </p>
+                    </blockquote>
+                </div>
+            </div>
+            
+        </div>
+    
+    <div class="article-area rounded">
+        <div class="d-flex flex-row justify-content-between px-3">
+            <div class = "d-flex flex-row align-items-center tagList">
+                
+                    <a href="/tags/mathematics/" class = "badge badge-secondary badge-pill mr-2">Mathematics</a>
+                
+                    <a href="/tags/differential-geometry/" class = "badge badge-secondary badge-pill mr-2">Differential Geometry</a>
+                
+                    <a href="/tags/geometry/" class = "badge badge-secondary badge-pill mr-2">Geometry</a>
+                
+                    <a href="/tags/manifold-learning/" class = "badge badge-secondary badge-pill mr-2">Manifold Learning</a>
+                
+            </div>        
+            <div class="text-right">
+                <p class="text-muted mx-3 my-0 py-0"> <i class="fas fa-clock text-primary"></i> Approximate reading time is 11 minutes </p>
+            </div>        
+        </div>
+
+        <div class="mt-5 px-3 article">
+            <h1 id="introduction">Introduction</h1>
+<p>In high school level, we generally hear about <a href="https://en.wikipedia.org/wiki/Euclidean_geometry">Euclidean Geometry</a> and <a href="https://en.wikipedia.org/wiki/Analytic_geometry">Co-ordinate Geometry</a>. If you are familiar in Co-ordinate Geometry, then you should be able to feel that theorems and consequences in Euclidean Geometry can be naturally extended to Co-ordinate Geometry. However, Co-ordinate Geometry is extremely specific to the coordinate system that we are using, for instance, if we are working on a plane (i.e. similar to Euclidean Geometry), then a planar coordinate system or <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">Cartesian co-ordinate system</a> is naturally used. However, when we are performing geometry on a sphere, naturally, a <a href="https://en.wikipedia.org/wiki/Polar_coordinate_system">Polar coordinate system</a> is used. However, suppose you are a Geographist, who wants to devise a coordinate system for the natural geography of Earth, clearly a Polar or Spherical Coordinate system does not work, since the shape is Earth is similar to that of an ellipsoid. So, it could be very much useful if we can generalize the idea of a coordinate system, to naturally represent any type of curvature, for instance, the image shown at the very beginning.</p>
+<p>Most of the recent advancements of geometry are developed for the specific needs of visualizing different abstract concepts of diverse mathematical fields. Generalizing the idea of the coordinate system would allow one to think some abstract set (or family or collection of objects pertaining to the related mathematical theory) as a curvature, to which we can associate geometrical objects and visualize them in a different and distinguished way.</p>
+<h1 id="a-general-curvature-manifold">A General Curvature: Manifold</h1>
+<p>Suppose you want to create a map of the earth, however, the earth is not flat (at least I am not a believer of <a href="https://en.wikipedia.org/wiki/Flat_Earth">Flat Earth Theory</a>), so one would primarily find it confusing that we can create a flat map of the earth. For example, consider the following map from <a href="https://www.welt-atlas.de/worldatlas">World Atlas</a>.</p>
+<p><img src="earth-map.png" alt=""></p>
+<p>But see that, we have a single location (like some part of Alaska &amp; Russia) being mapped to two different places in the map. Also note that, due to the curvature of earth&rsquo;s surface, the supposedly gridlines are mapped to curved lines on the map. But if you look at it, there is a nice structure in the map, all the curved gridlines look very natural and aesthetically pleasing to understand. Moreover, if you draw tangent on the horizontal curves and tangent on the vertical curves, at their intersection point, you would find them meeting at a right angle. And if you are good at the field of <strong>Complex Analysis</strong>, then you would probably figure out that it has something to do with analytic functions.</p>
+<p>Let us formalize the intuitions that we have. We have an arbitrary set $S$, which can be called a <strong>Manifold</strong>, if we have a one-one mapping $\phi : S\rightarrow \mathbb{R}^n$ for some $n\in \mathbb{N}$. Since the mapping is one-one, we can identify each point of $S$ by a $n$-length vector $v \in \mathbb{R}^n$, which can be used to serve as a coordinate system for the points in $S$. Going back to our example of earth, to identify a location in the surface of the earth, we lay out the map and find the x-coordinates (latitude) and the y-coordinates (longitude) of the particular location. So, we have a mapping (created by geographists) that maps $S$, the surface of the earth to $\mathbb{R}^2$. As you might have guessed, the number $n$ is the dimension of the manifold.</p>
+<p>Let me cite another motivating example from <a href="https://en.wikipedia.org/wiki/Manifold">Wikipedia page about Manifolds</a> to show that only one mapping may not be good enough.</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Circle_with_overlapping_manifold_charts.svg/1024px-Circle_with_overlapping_manifold_charts.svg.png" width = "200px">
+<p>Note that, the circle is essentially a curved line, with ends being merged together. Clearly, it is a one dimensional structure, although embedded on a 2-dimensional plane. So, to interpret it as a manifold, we need to create (a or several) one-one mapping(s) from it to $\mathbb{R}$. Let us consider the circle having center at the origin and having radius equal to 1 unit. Here, we shall use $4$ different one-one mappings from part of the circle to the unit interval $[0, 1]$ which is a subset of $\mathbb{R}$.</p>
+<p>$$\begin{align*}
+\phi_{Top}((x, y)) &amp; = (x + 1)/2 \text{ if } y \geq 0\<br>
+\phi_{Left}((x, y)) &amp; = (y + 1)/2 \text{ if } x &lt; 0\<br>
+\phi_{Right}((x, y)) &amp; = (y + 1)/2 \text{ if } x \geq 0\<br>
+\phi_{Bottom}((x, y)) &amp; = (x + 1)/2 \text{ if } y &gt; 0
+\end{align*}$$</p>
+<p>These simple functions actually give the one-one mapping shown in the above figure. Hence, for some point on the circle, we may end up having more than one representation.</p>
+<p>In general, manifolds can be very abstract. However, one usually puts some restrictions like those maps being smooth and analytic, so that it is easy to work with.</p>
+<h1 id="defining-horizons">Defining Horizons</h1>
+<p>When we walk on the earth, it seems that earth is flat, as we see horizons just straight ahead of us, not below us. This is precisely because earth&rsquo;s geometry is locally flat, i.e. at any point on earth, the local surface of the earth can be well approximated by a plane. Mathematically, this concept is called <strong>Tangent Spaces</strong>.</p>
+<h2 id="defining-curves">Defining Curves</h2>
+<p>To formalize the idea, we need to introduce curves. These are some lines on the surface of the manifold (or on the manifold). For our example, this means a path which we take when walking on the surface of the earth.</p>
+<p><img src="curves.jpeg" alt=""></p>
+<p>Although the curve (the path shown in red) is a little jagged on the surface, usually mathematicians deal with the curves which are differentiable and smooth, and is easy to deal with mathematically. A curve $\gamma$ is a continuous function from $\mathbb{R}$ or some interval of $\mathbb{R}$ to the manifold $S$. For example, consider a path $\gamma : [0, 1] \rightarrow S$, then $\gamma(0)$ and $\gamma(1)$ denotes the two endpoints of the curve.</p>
+<h2 id="working-towards-tangents">Working towards tangents</h2>
+<p>Now that you have a curve to walk on, you can stop at any point and ask where the horizon is. Similar to how we define tangents or derivatives of a function, we can think of the following quantity;</p>
+<p>$$\gamma&rsquo;(x_0) = \lim_{x \rightarrow x_0}\dfrac{\gamma(x) - \gamma(x_0)}{(x - x_0)}$$</p>
+<p>We could have done that precisely, but here&rsquo;s the catch, is the subtraction $\gamma(x) - \gamma(x_0)$ is even possible? Since, in general, both these are elements of $S$, which being an arbitrary set, may not support simple operations like addition or multiplication. There are two ways we can circumvent the problem:</p>
+<ol>
+<li>Restrict the type of the manifold to fields or some special algebraic structures to allow support for addition or multiplication.</li>
+<li>Consider an arbitrary function $f : S \rightarrow\mathbb{R}$, which can be composed with the curve to define a derivative-like object. Then, we might try to explore possible ways to remove the arbitrary function from the expression.</li>
+</ol>
+<p>The 2nd approach is the one univocally taken by the mathematical community. Here, we consider any function $f$, and consider the derivative;</p>
+<p>$$\frac{d}{dt}f(\gamma(t)) 
+= \lim_{h \rightarrow 0}\dfrac{f(\gamma(t+h)) - f(\gamma(t))}{h}$$</p>
+<p>Let the coordinate system $\phi : S\rightarrow \mathbb{R}^n$ be given as; $\phi(p) = [\xi_1(p), \xi_2(p), \dots \xi_n(p)]$, where $\xi_i$'s are coordinate functions. Let, $\gamma(t)$ be denoted by the coordinates $[\gamma_1(t), \gamma_2(t), \dots \gamma_n(t)]$. Note that,</p>
+<p>$$\frac{d}{dt}f(\gamma(t)) 
+= \sum_{i=1}^{n} \frac{\partial f}{\partial\xi_i} \frac{d\gamma_i(t)}{dt}$$</p>
+<p>Note that, since we took $f$ to be an arbitrary function, the tangent is given by $\sum_{i=1}^{n} \frac{d\gamma_i(t)}{dt} \frac{\partial}{\partial\xi_i}$, i.e. some linear combination (based on which curve we are walking on) of the partial differential operators $\frac{\partial}{\partial\xi_i}$. Hence, the tangent space, i.e. the space (or set) containing all such tangents at a point $p$ on the manifold $S$, is given by a vector space, with the basis being the partial differential operators $\left\{ \left( \frac{\partial}{\partial\xi_i} \right)_p : i = 1, 2, \dots n\right\}$.</p>
+<h2 id="intuitive-understanding-of-tangents">Intuitive Understanding of Tangents</h2>
+<p>Now probably you are trying to think how it all makes sense. Because after all, the tangent space is a vector space, and we generally are comfortable with vectors whose entries are some scaler quantities, specifically real numbers or complex numbers. So, how tangent spaces of manifolds have these $\left( \frac{\partial}{\partial\xi_i} \right)_p$ operators as a basis vector.</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Tangentialvektor.svg/960px-Tangentialvektor.svg.png" width = "250px">
+<p>Carefully look at the picture above. The manifold $M$ is the curved regions shaded in dark grey. The tangent space $T_xM$ at the point $x$ contains all the vectors $v$ which are tangential to the manifold at the point $x$. One such vector $v$, shown in the image, does not belong to the manifold, but it belongs to the larger space in which the manifold is embedded. So, if we represent the tangent space using only $n$ element vector, this will end up specifying vectors in $\mathbb{R}^n$ (i.e. in the coordinate system), but this would only give some curve in the manifold, not something outside of the manifold $M$. Therefore, we need some type of generalization of vectors, which can be applied to any space (precisely the space where manifold $M$ is embedded in).</p>
+<p>The differential operator precisely does that. It tracks how the inverse map (or inverse coordinate system) $\phi^{-1}$ applies from $\mathbb{R}^n$ to the space (the space where manifold $M$ is embedded in), and hence it allows one to define vectors in that space, by tracking how changes in $\mathbb{R}^n$ transfers to that space.</p>
+<h1 id="from-tangents-to-riemannian-manifold">From Tangents to Riemannian Manifold</h1>
+<p>Now that we have a geometry of tangent space and the manifold, the next thing one would try to find is the distance between two points on the manifold. We know that linear algebra allows us to define distance through a norm or with inner product in general, and we have a vector space here to perform these techniques from linear algebra. So, for each point $p \in S$, i.e. point on the manifold, the tangent space $T_pS$ at $p$, is a vector space, hence can be equipped with an inner product. Such a manifold is called <strong>Riemannian</strong>.</p>
+<p>Let us use the notation $(\partial_i)_p$ to denote the basis vector $(\frac{\partial}{\partial\xi_i})_p$ in the tangent space $T_pS$. Also, we define an inner product $\langle (\partial_i)_p, (\partial_j)_p\rangle = (g_{ij})_p$. Then, we can define the matrix $G_p$ with entries $\left\{ (g_{ij})_p \right\}_{i, j =1}^n$, which constitutes the inner product matrix on the tangent space $T_pS$. Due to this being an inner product matrix, it must be a positive definite matrix.</p>
+<p>Also, note that, the length of a vector in that space is;</p>
+<p>$$\Vert D\Vert = \langle D, D\rangle = \sum_{i, j = 1}^n (g_{ij})_p D_iD_j$$</p>
+<p>where $D = \sum_i D_i (\partial_i)_p$. Generalizing this notion, we can find small such distances on the tangent spaces, and add (or integrate) them up in order to find the distance of a curve on that manifold. So, if $\gamma : [a, b]\rightarrow S$, is a curve on the manifold $S$, then its length is simply given by;</p>
+<p>$$\Vert\gamma\Vert = \int_{a}^{b} (g_{ij})_p (\gamma&rsquo;_i)_p(\gamma&rsquo;_j)_p dt$$</p>
+<p>where $(\gamma&rsquo;_i)_p = (\frac{\partial}{\partial t}\gamma_i)_{\gamma^{-1}(p)}$, where $\gamma_i(t)$'s are the coordinates of $\gamma(t)$. So, you consider the derivative of the coordinate functions of the curve at the point $\gamma^{-1}(p)$, i.e. the point of $t \in [a, b]$ at which we have the curve function at required point $p$, so that we can use corresponding tangent space in order to calculate length.</p>
+<h1 id="generalizing-straight-lines">Generalizing Straight Lines</h1>
+<p>Using these concepts of lengths, we can define <strong>Geodesics</strong>, which are kind of a generalized version of a straight line. In a Euclidean plane, a straight line is axiomatically defined as the shortest curve connecting two points.</p>
+<p><img src="geodesic.jpg" alt=""></p>
+<p>In this figure, for example, the blue points shown on the plane, are connected via a curve which entirely lies on the plane, hence the curve with smallest such distance is the straight line segment joining those points. However, if we take two points on the surface of the sphere, then the shortest possible curve joining those two, which entirely lies on the surface of that sphere is a curved line. For instance, if you think of going from Hong Kong to New York, you cannot travel in a straight line, since that would require you to dig through earth&rsquo;s crust, make a tunnel to travel through. However, if we consider the shortest possible curve, which an aeroplane takes, is actually a curved line in 3-dimensional space, but is natural analogue to the gridlines (i.e. the meridians or latitudinal lines), hence seems like a straight line with respect to the surface of the manifold.</p>
+<p>Hence, as we know precisely how we can define lengths on a Riemannian manifold, we can move on to compute geodesic. Intuitively, for many cases, finding the geodesic is easier, once we use the coordinate functions. Note that, $\phi: S\rightarrow \mathbb{R}^n$ is our coordinate map of the manifold $S$. Hence, any geodesic in the manifold would in principle, be a geodesic in the coordinate system (which happens under certain tricky mathematical conditions), hence, we can, in principle, find the geodesic connecting the point $a, b\in S$, as;</p>
+<p>$$\left\{ \phi^{-1}(\phi(a) t + (1-t)\phi(b)) : t \in [0, 1] \right\}$$</p>
+<p>since $\phi(a) t + (1-t)\phi(b)$, as $t\in[0, 1]$ is the equation of the straight line connecting the coordinates $\phi(a)$ and $\phi(b)$ in the coordinate space, and then for each point on that line, we invert it back to the manifold to get a geodesic connecting $a$ and $b$.</p>
+<p>However, such intuitive things break down under very general conditions. Surprisingly enough, on the surface of a manifold, you can create a generalized triangle, whose sides are geodesics, and have the sum of the angles of the triangle be greater or less than 180 degrees. For instance, we see one such example on our beloved planet as well.</p>
+<p><figure>
+    <img src="more180.jpg" height="300px"/> 
+</figure>
+
+<figure>
+    <img src="less180.png" height="300px"/> 
+</figure>
+</p>
+<p>The first one is a triangle with sum of the angles being more than 180 degrees, while the second one is a triangle with sum of the angles being less than 180 degrees. So, as you can guess, many intuitive results of Euclidean geometry breaks down, thus creating a lot of newer scope of growth in this discipline.</p>
+<h1 id="references">References</h1>
+<ol>
+<li><a href="https://en.wikipedia.org/wiki/Manifold">https://en.wikipedia.org/wiki/Manifold</a></li>
+<li>Shun-Ichi Amari, Hiroshi Nagaoka - Methods of information geometry-American Mathematical Society (2000)</li>
+</ol>
+
+        </div>
+    </div>
+    <div class="container mx-auto my-3">
+        <hr/>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-8 mx-auto text-center">
+            <div class="lead">Did you find this post helpful?</div>
+            <h4>Consider sharing it! &#128516; </h4>
+
+            
+            <div class="share-buttons d-flex justify-content-around">
+                
+                
+                <a href="https://bufferapp.com/add?url=%2fposts%2fpost4%2f&amp;text=Intuitive%20Introduction%20to%20Differential%20Geometry" target="_blank">
+                    <img src="/img/social-icons/buffer.png" alt="Buffer" />
+                </a>
+                
+                
+                <a href="http://www.digg.com/submit?url=%2fposts%2fpost4%2f" target="_blank">
+                    <img src="/img/social-icons/diggit.png" alt="Digg" />
+                </a>
+                
+                
+                <a href="mailto:?Subject=Intuitive%20Introduction%20to%20Differential%20Geometry&amp;Body=I%20saw%20this%20and%20found%20interesting!%20 %2fposts%2fpost4%2f">
+                    <img src="/img/social-icons/email.png" alt="Email" />
+                </a>
+            
+                
+                <a href="http://www.facebook.com/sharer.php?u=%2fposts%2fpost4%2f" target="_blank">
+                    <img src="/img/social-icons/facebook.png" alt="Facebook" />
+                </a>
+                
+                
+                <a href="https://plus.google.com/share?url=%2fposts%2fpost4%2f" target="_blank">
+                    <img src="/img/social-icons/google.png" alt="Google" />
+                </a>
+                
+                
+                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=%2fposts%2fpost4%2f" target="_blank">
+                    <img src="/img/social-icons/linkedin.png" alt="LinkedIn" />
+                </a>
+                
+                
+                <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+                    <img src="/img/social-icons/pinterest.png" alt="Pinterest" />
+                </a>
+                
+                
+                <a href="javascript:;" onclick="window.print()">
+                    <img src="/img/social-icons/print.png" alt="Print" />
+                </a>
+                
+                
+                <a href="http://reddit.com/submit?url=%2fposts%2fpost4%2f&amp;title=Intuitive%20Introduction%20to%20Differential%20Geometry" target="_blank">
+                    <img src="/img/social-icons/reddit.png" alt="Reddit" />
+                </a>
+                
+                
+                <a href="http://www.stumbleupon.com/submit?url=%2fposts%2fpost4%2f&amp;title=Intuitive%20Introduction%20to%20Differential%20Geometry" target="_blank">
+                    <img src="/img/social-icons/stumbleupon.png" alt="StumbleUpon" />
+                </a>
+                
+                
+                <a href="http://www.tumblr.com/share/link?url=%2fposts%2fpost4%2f&amp;title=Intuitive%20Introduction%20to%20Differential%20Geometry" target="_blank">
+                    <img src="/img/social-icons/tumblr.png" alt="Tumblr" />
+                </a>
+                
+                
+                <a href="https://twitter.com/share?url=%2fposts%2fpost4%2f&amp;text=Intuitive%20Introduction%20to%20Differential%20Geometry" target="_blank">
+                    <img src="/img/social-icons/twitter.png" alt="Twitter" />
+                </a>
+                
+                
+                <a href="http://vkontakte.ru/share.php?url=%2fposts%2fpost4%2f" target="_blank">
+                    <img src="/img/social-icons/vk.png" alt="VK" />
+                </a>
+                
+                
+                <a href="http://www.yummly.com/urb/verify?url=%2fposts%2fpost4%2f&amp;title=Intuitive%20Introduction%20to%20Differential%20Geometry" target="_blank">
+                    <img src="/img/social-icons/yummly.png" alt="Yummly" />
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row mt-5 mb-5 pb-5">
+        <div class="col-md-2"></div>
+        
+            <div class="col-md-3">
+                <a href = "/posts/post3/" class = "btn btn-success btn-block mb-3"> Previous post </a>
+            </div>
+        
+        <div class="col-md-2"></div>
+        
+            <div class="col-md-3">
+                <a href = "/posts/post5/" class = "btn btn-success btn-block mb-3"> Next post </a>
+            </div>
+        
+        <div class="col-md-2"></div>
+    </div>    
+
+    
+    </div>
+    
+    
+
+<footer class="alert alert-dark pt-4 text-center" role="alert">
+    
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://subroy13.github.io" class = "alert-link"> SubRoy13's Personal Website</a>
+    </div>
+    
+    
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.5.2/mermaid.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

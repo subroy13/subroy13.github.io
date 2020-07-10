@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on SR&#39;s Website</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on SR&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Covid19</title>
+      <link>/tags/covid19/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/covid19/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Epidemiological Model</title>
+      <link>/tags/epidemiological-model/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/epidemiological-model/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Shiny Application</title>
+      <link>/tags/r-shiny-application/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-shiny-application/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Auction Theory</title>
+      <link>/tags/auction-theory/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/auction-theory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clustering</title>
+      <link>/tags/clustering/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/clustering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markov Chain Monte Carlo</title>
+      <link>/tags/markov-chain-monte-carlo/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/markov-chain-monte-carlo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regression Analysis</title>
+      <link>/tags/regression-analysis/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/regression-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Changepoint Analysis</title>
+      <link>/tags/changepoint-analysis/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/changepoint-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>/tags/machine-learning/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Natural Language Processing</title>
+      <link>/tags/natural-language-processing/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/natural-language-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Text Processing</title>
+      <link>/tags/text-processing/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/text-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image Processing</title>
+      <link>/tags/image-processing/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/image-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image Segmentation</title>
+      <link>/tags/image-segmentation/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/image-segmentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Differential Geometry</title>
+      <link>/tags/differential-geometry/</link>
+      <pubDate>Fri, 31 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/differential-geometry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Geometry</title>
+      <link>/tags/geometry/</link>
+      <pubDate>Fri, 31 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/geometry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Manifold Learning</title>
+      <link>/tags/manifold-learning/</link>
+      <pubDate>Fri, 31 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/manifold-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mathematics</title>
+      <link>/tags/mathematics/</link>
+      <pubDate>Fri, 31 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/mathematics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Neural Network</title>
+      <link>/tags/neural-network/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/neural-network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Neural Style Transfer</title>
+      <link>/tags/neural-style-transfer/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/neural-style-transfer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Texture Network</title>
+      <link>/tags/texture-network/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/texture-network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Integral Calculus</title>
+      <link>/tags/integral-calculus/</link>
+      <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/integral-calculus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Price Modelling</title>
+      <link>/tags/price-modelling/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/price-modelling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hypothesis testing</title>
+      <link>/tags/hypothesis-testing/</link>
+      <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/hypothesis-testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sound processing</title>
+      <link>/tags/sound-processing/</link>
+      <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/sound-processing/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
