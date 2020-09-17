@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/avatar.svg">
+    <title>
+        
+    An Introduction to Image Segmentation Techniques
+
+    </title>
+
+    
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+
+<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    
+    <link rel="stylesheet" href="/css/singlePostStyle.css">
+
+     
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      <img src="/img/avatar.svg" width="30" height="30" class="d-inline-block align-top rounded-circle mr-2" alt="" loading="lazy">
+      Subhrajyoty Roy
+    </a>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/"> <span> <i class="fa fa-home"></i></span> Home </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/blog/"> <span> <i class="fa fa-edit"></i></span> Blog </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/ed/"> <span> <i class="fa fa-university"></i></span> Education &amp; Work </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/projects/"> <span> <i class="fa fa-tasks"></i></span> Projects </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/publications/"> <span> <i class="fas fa-book"></i></span> Publications </a>
+        </li>
+        
+
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/#contact"> <span> <i class="fas fa-id-card"></i></span> Contact Me </a>
+        </li>
+      </ul>
+
+      
+    </div>
+  </nav>
+
+    <div class="container-fluid mt-5 pt-5">
+        
+    
+    
+    
+        <div class="article-cover d-flex align-items-center" style = "background-image: url('/blog/image-segment-intro/featured.png')">
+            <div class="container article-header text-white">
+                <div class="pl-5 text-center">
+                    <h1 class="display-4">An Introduction to Image Segmentation Techniques</h1>
+                    <blockquote class="blockquote">
+                        <p class="mb-0">Subhrajyoty Roy</p>
+                        <p class="mb-0">23 March, 2020 </p>
+                    </blockquote>
+                </div>
+            </div>
+            
+                <div class = "cite-cover">
+                    <p>Cover image taken from <a href="https://sites.google.com/site/highwaydrivingdataset/">The Highway Driving Database</a></p>
+                </div>
+            
+        </div>
+    
+    
+    <div class="article-area rounded">
+        
+        <div class="d-flex flex-row justify-content-between px-3">
+            <div class = "d-flex flex-row align-items-center tagList">
+                
+                    <a href="/tags/image-segmentation/" class = "badge badge-secondary badge-pill mr-2">Image Segmentation</a>
+                
+                    <a href="/tags/image-processing/" class = "badge badge-secondary badge-pill mr-2">Image Processing</a>
+                
+                    <a href="/tags/clustering/" class = "badge badge-secondary badge-pill mr-2">Clustering</a>
+                
+            </div>        
+            <div class="text-right">
+                <p class="text-muted mx-3 my-0 py-0"> <i class="fas fa-clock text-primary"></i> Approximate reading time is 20 minutes </p>
+            </div>        
+        </div>
+        <div class="mt-5 px-3 article">
+            <h1 id="a-lot-of-long-distance-good-luck">A lot of long distance Good Luck</h1>
+<p>Currently, as I am writing this, it is a global pandemic situation all over the world, with a newly infectious disease caused by a newly discovered coronavirus, called COVID-19. According to the website to <a href="https://www.who.int/health-topics/coronavirus">WHO (World Health Organization)</a>, most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.</p>
+<p>There are about 13 thousands people we have lost to the adverse effect of the disease, and more than three hundred thousands persons currently fighting against this disease, which rapidly grew out of China just within last three to four months. People are currently comparing it to the <a href="https://en.wikipedia.org/wiki/Spanish_flu">Spanish flu</a>, which took place roughly $100$ years before, and hence, almost none of us have any experience of dealing with a pandemic at such a large scale. As a countermeasure to reduce the spread of infectious disease, my hometown is at a Shelter-in-place lockdown, and hence I have almost nothing to do except scrapping through the internet to learn some new things that interests me.</p>
+<p>However, I sincerely wish you all to stay unite, and stay safe. We would get through the hard times.</p>
+<p><strong>WHO Guidelines to STAY SAFE:</strong></p>
+<ul>
+<li>The best way to prevent and slow down transmission is be well informed about the COVID-19 virus, the disease it causes and how it spreads.</li>
+<li>Wash your hands frequently with an alcohol based rub or soap.</li>
+<li>Maintain social distancing.</li>
+<li>Avoid touching eyes, nose and mouth.</li>
+<li>Practice respiratory hygiene.</li>
+<li>If you have fever, cough and difficulty breathing, seek medical care early.</li>
+<li>Stay informed and follow advice given by your healthcare provider.</li>
+<li>Protect yourselves and protect others.</li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p>Now, as you have quite guessed from the title of the post, this is about segmenting an image about different regions. Image Segmentation refers to the task that is used to seperate foreground from the background of an image. Before understanding what it means, note that, an image can be described as a collection of geometric shapes (lines, curves, polygons etc.) having various aesthestics mapping to real life (or fictional) quantities or objects. I find it essentially similar to that of <code>ggplot</code> plotting technique, we have a dataset comprising of some measurements or objects which we want to measure, and we can build a plot (read an image) out of it, by creating an aesthestic mapping of those measurements to geometric objects such as points, lines, curves, polygons etc. The book written by Leland Wilkinson named <a href="https://books.google.co.in/books/about/The_Grammar_of_Graphics.html?id=ZiwLCAAAQBAJ&amp;source=kp_book_description&amp;redir_esc=y"><strong>The Grammar of Graphics</strong></a> is one such book which describes the process in great detail.</p>
+<p>Let me start with an example. Let&rsquo;s say you have an image of a red chair, with a white wall at the back. Now, when you look at the image, you are seeing possibly some polygons (which may have some curved edges), which defines different regions of a chair, each having a slightly different shade of colour, due to disparate reflective nature and absorption of photons when there is a lighting source used to illuminate the scene. Now, in simple terms, there is a latent dataset with rich measurements of different characteristics of the objects in the scene (namely the chair and the wall), namely containing the spatial and lighting informations, however we do not get to observe that.</p>
+<table>
+<thead>
+<tr>
+<th>x coordinate</th>
+<th>y coordinate</th>
+<th>z coordinate</th>
+<th>colour(rgb)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.2123</td>
+<td>23.443</td>
+<td>0. 1768</td>
+<td>(240, 75, 90)</td>
+</tr>
+<tr>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+</tbody>
+</table>
+<p>Now, an image can also be described as a mapping of the above rows to a rows like this (which is observable by means of the image at hand),</p>
+<table>
+<thead>
+<tr>
+<th>x coordinate</th>
+<th>y coordinate</th>
+<th>colour(rgb)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>23</td>
+<td>35</td>
+<td>(240, 75, 90)</td>
+</tr>
+<tr>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+</tbody>
+</table>
+<p>where the new x and y coordinates are coordinates in the 2-dimensional map described by the plane of the image. Now, to each of the rows of the latent dataset, we associated an object (because that is how we interprete it), for instance, the rows which consitute the 3-dimensional spatial coordinates of the location of atoms of the chiar, are associated with the chair, and the rest, maybe associated with the floor and the white wall. Image segmentation specifically refers to generating that interpretation in a systematic and automatic way, just by looking at the visual sensory information (i.e. the 2nd type of dataset), and the problem is difficult, as the mapping by which the latent dataset converted to this, is extremely complicated in nature (maybe unknown). Therefore, a perfect image segmentation achieves the hidden representation of an image into something that is more meaningful and easier to analyze.</p>
+<h1 id="importing-necessary-python-packages">Importing Necessary Python Packages</h1>
+<p>For this, we shall be using <code>numpy</code> for vector and matrix manipulations, <code>cv2</code>to read image files as a numpy array, and finally <code>matplotlib</code> for various plotting related tasks. I am using python 3.7.4 for this.</p>
+<p><em>Note: If you want to know an image can be represented in an array (or a tensor), go check out the section on &ldquo;Making some utlity functions&rdquo; on my other post on <a href="https://subroy13.github.io/post/post3/">Texture Networks</a></em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> cv2
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> sys
+sys<span style="color:#f92672">.</span>version
+</code></pre></div><pre><code>'3.7.4 (default, Aug  9 2019, 18:34:13) [MSC v.1915 64 bit (AMD64)]'
+</code></pre>
+<p>I shall be using the beautiful picture of <a href="https://en.wikipedia.org/wiki/Mona_Lisa">Mona Lisa</a> by Leaonardo Da Vinci. I am not a connoisseur about aesthestics, but I appreciate the image from the point of view that it has a subject, and a background, two very clearly seperated item in the image.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">bw_img <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>imread(<span style="color:#e6db74">&#39;./Mona_Lisa.jpg&#39;</span>)  <span style="color:#75715e"># read a black and white version</span>
+col_img <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>imread(<span style="color:#e6db74">&#39;./Mona_Lisa_color.jpg&#39;</span>)   <span style="color:#75715e"># and a color version</span>
+
+<span style="color:#75715e"># since, cv2 reads in BGR format, we need to use RGB format for plotting</span>
+col_img <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>cvtColor(col_img, cv2<span style="color:#f92672">.</span>COLOR_BGR2RGB)
+
+fig, plots <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>, figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">10</span>))     <span style="color:#75715e"># subplot with 1 row, 2 columns</span>
+
+<span style="color:#75715e"># subplot 1</span>
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>imshow(bw_img, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Black &amp; White&#39;</span>)
+
+<span style="color:#75715e"># subplot 2</span>
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>imshow(col_img)
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Colored&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="./Image%20Segmentation%20Techniques_5_0.png" alt="png"></p>
+<h1 id="histogram-thresholding">Histogram Thresholding</h1>
+<p>Histogram thresholding is the most basic way of segmenting an image. It is fast, simple yet very effective. For instance, assume we have a grayscale image, where the foreground and background has different grayscale intensities. Let us say, we have the grayscale intensity $i$ ($0 \leq i \leq 255$), appearing $f_i$ times in the image (i.e. there are $f_i$ pixels with grayscale intensity level $i$), and $N$ is the total number of digital pixels in the image. Now, assume that, the background object has a mean intensity level $\mu_b$, and foreground has mean intensity level $\mu_f$. Then, we assume,</p>
+<p>$$
+I_{x, y} \sim 
+\begin{cases}
+g(i_{x, y}; \mu_f) &amp; \text{if (x, y) pixel belongs to foreground} \\\<br>
+g(i_{x, y}; \mu_b) &amp; \text{if (x, y) pixel belongs to background} \\\<br>
+\end{cases}
+$$</p>
+<p>where $I_{x, y}$ is the intensity level at (x, y)-th pixel of the image, which is a random variable (and is taking value $i_{x, y}$) and follows a density $g(\cdot)$ whose location is specified by $\mu_f$ or $\mu_b$, based on whether the pixel corresponds to background object (the white wall) or the foreground object (the red chair).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>hist(bw_img<span style="color:#f92672">.</span>ravel(), bins <span style="color:#f92672">=</span> <span style="color:#ae81ff">255</span>)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Histogram of grayscale values of Mona Lisa Image&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="./Image%20Segmentation%20Techniques_7_0.png" alt="png"></p>
+<p>As you can see, there are 3 clear regions in the histogram, which might indicates, there are 3 such segments possible, since it looks like the histogram comprises of mixture of 3 random variables.</p>
+<ol>
+<li>First component has a mean about at 5.</li>
+<li>Second component shows a mode (or peak) about at 45.</li>
+<li>Third component shows a mode at 130.</li>
+</ol>
+<p>So, we consider some thresholds, at 25 and 95. Now, we shall simply use these thresholds, and assign different values to all pixel intensities that are smaller than 25 to one value, all in between 25 and 95 to another value, and all pixels higher than 95 to another value. This should give us some possible segmentation, although not automatic, but is useful to gain insights and idea about the method.</p>
+<p>The following function performs the segmentation given the values of the thresholds.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">segment</span>(img, thresholds):
+    bins <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>]    <span style="color:#75715e"># these are used to binning the image</span>
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(thresholds)):
+        bins<span style="color:#f92672">.</span>append( thresholds[i] )
+    bins<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">256</span>)
+    
+    img <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(img)
+    bins <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(bins)
+    segment_bin <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>digitize(img, bins)
+    <span style="color:#66d9ef">return</span>(bins[segment_bin] )    <span style="color:#75715e"># return the segmented image&#34;</span>
+</code></pre></div><p>Now we apply the threshold 25, 95 and both to see which regions are being identified as foreground and backgrund for which thresholds.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">thres1 <span style="color:#f92672">=</span> [<span style="color:#ae81ff">25</span>]
+thres2 <span style="color:#f92672">=</span> [<span style="color:#ae81ff">95</span>]
+thres3 <span style="color:#f92672">=</span> [<span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">95</span>]
+
+fig, plots <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>, figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">10</span>))     <span style="color:#75715e"># subplot with 1 row, 3 columns</span>
+
+<span style="color:#75715e"># subplot 1</span>
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>imshow(segment(bw_img, thres1), cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Segment with threshold = 25&#39;</span>)
+
+<span style="color:#75715e"># subplot 2</span>
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>imshow(segment(bw_img, thres2), cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Segment with threshold = 95&#39;</span>)
+
+<span style="color:#75715e"># subplot 3</span>
+plots[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>imshow(segment(bw_img, thres3), cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Segment with threshold = 25 &amp; 95&#39;</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="./Image%20Segmentation%20Techniques_11_1.png" alt="png"></p>
+<p>It seems that, the threshold at 25 separates the clothings and darker shades of skin of Mona Lisa from the background, while threshold at 95 tend to separate the lighter shades of skin (the face, the hands). Combining both yields a good understanding of the different segments available in the image.</p>
+<p>Now, let us perform similar analysis on the coloured version of the image. In that case, we process each of the channel seperately through this procedure.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, plots <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>, figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">3</span>))     <span style="color:#75715e"># subplot with 1 row, 3 columns</span>
+
+<span style="color:#75715e"># subplot 1</span>
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>hist(col_img[:,:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>ravel(), bins <span style="color:#f92672">=</span> <span style="color:#ae81ff">255</span>)
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Histogram of R channel&#39;</span>)
+
+<span style="color:#75715e"># subplot 2</span>
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>hist(col_img[:,:,<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>ravel(), bins <span style="color:#f92672">=</span> <span style="color:#ae81ff">255</span>)
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Histogram of G channel&#39;</span>)
+
+<span style="color:#75715e"># subplot 3</span>
+plots[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>hist(col_img[:,:,<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>ravel(), bins <span style="color:#f92672">=</span> <span style="color:#ae81ff">255</span>)
+plots[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Histogram of B channel&#39;</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="./Image%20Segmentation%20Techniques_13_0.png" alt="png"></p>
+<p>Now, it seems a lot more difficult to separate background from foreground on the basis of thresholds just by subjectively judging them.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">thres_R <span style="color:#f92672">=</span> [<span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">100</span>]
+thres_G <span style="color:#f92672">=</span> [<span style="color:#ae81ff">100</span>]
+thres_B <span style="color:#f92672">=</span> [<span style="color:#ae81ff">55</span>]
+
+segment_R <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>expand_dims( segment(col_img[:, :, <span style="color:#ae81ff">0</span>], thres_R) , <span style="color:#ae81ff">2</span>)    <span style="color:#75715e"># apply segmentation and convert to 3d array</span>
+segment_G <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>expand_dims( segment(col_img[:, :, <span style="color:#ae81ff">1</span>], thres_G) , <span style="color:#ae81ff">2</span>)
+segment_B <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>expand_dims( segment(col_img[:, :, <span style="color:#ae81ff">2</span>], thres_B) , <span style="color:#ae81ff">2</span>)
+
+segment_img <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>concatenate( (segment_R, segment_G, segment_B), axis <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+
+
+fig, plots <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">4</span>, figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">5</span>))     <span style="color:#75715e"># subplot with 1 row, 4 columns</span>
+
+<span style="color:#75715e"># subplot 1</span>
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>imshow(segment_R[:, :, <span style="color:#ae81ff">0</span>], cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Segmentation of R channel&#39;</span>)
+
+<span style="color:#75715e"># subplot 2</span>
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>imshow(segment_G[:, :, <span style="color:#ae81ff">0</span>], cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Segmentation of G channel&#39;</span>)
+
+<span style="color:#75715e"># subplot 3</span>
+plots[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>imshow(segment_B[:, :, <span style="color:#ae81ff">0</span>], cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Segmentation of B channel&#39;</span>)
+
+<span style="color:#75715e"># final image</span>
+plots[<span style="color:#ae81ff">3</span>]<span style="color:#f92672">.</span>imshow(segment_img)
+plots[<span style="color:#ae81ff">3</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Final segmentation of image&#39;</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="./Image%20Segmentation%20Techniques_15_1.png" alt="png"></p>
+<p>Therefore, we see that most the segmentation generally comes from the G channel itself, but the final segmentation does not look very promising. As you can see, there are lots of artifacts and noises all around. Therefore, we need our workaround against this, which we shall be discussing shortly.</p>
+<h1 id="otsus-method">Otsu&rsquo;s Method</h1>
+<p>Otsu&rsquo;s method is a automatic way of detecting such thresholds. To better understand it, consider a threshold value $s$. Then, the best estimate of $\mu_f$ and $\mu_b$ are as follows:</p>
+<p>$$
+\begin{align}
+\mu_b^{(s)} &amp; = \dfrac{\sum_{i = 0}^{s} i f_i }{\sum_{i = 0}^{s} f_i}\\\<br>
+\mu_f^{(s)} &amp; = \dfrac{\sum_{i = (s+1)}^{255} i f_i }{\sum_{i = (s+1)}^{255} f_i}\\\<br>
+\end{align}
+$$</p>
+<p>where the superscript is used to denote the threshold $s$.</p>
+<p>Assuming that, foreground has higher lower intensity level than the foreground (or object) due to the fact that object is properly illuminated, one way to choose the threshold that minimizes the weighted intraclass variance, or conversely maximize the weighted interclass variance. Now, the formula of weighted interclass variance is simply;</p>
+<p>$$V = \dfrac{{\sum_{i = 0}^{s} f_i}}{N} \times \dfrac{{\sum_{i = 0}^{s} f_i}}{N} \times \left[ \mu_b^{(s)}  - \mu_f^{(s)}\right]^2$$</p>
+<p>The following function computes this interclass variance for all threshold levels $s = 1, 2, \dots 254$.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">interclass_var</span>(img):
+    var <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(<span style="color:#ae81ff">256</span>)
+    freq <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(<span style="color:#ae81ff">256</span>)
+    
+    <span style="color:#75715e"># obtain f_i&#39;s</span>
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(img<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]):
+        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(img<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">1</span>]):
+            freq[img[i, j]] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>     <span style="color:#75715e"># increase corresponding intensity frequency</span>
+            
+    <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">255</span>):
+        w1 <span style="color:#f92672">=</span> freq[<span style="color:#ae81ff">0</span>:s]<span style="color:#f92672">.</span>sum()
+        w2 <span style="color:#f92672">=</span> freq[s:]<span style="color:#f92672">.</span>sum()
+        <span style="color:#66d9ef">if</span> w1<span style="color:#f92672">!=</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> w2<span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>:
+            mu1 <span style="color:#f92672">=</span> sum( np<span style="color:#f92672">.</span>arange(s) <span style="color:#f92672">*</span> freq[<span style="color:#ae81ff">0</span>:s] ) <span style="color:#f92672">/</span> w1
+            mu2 <span style="color:#f92672">=</span> sum( np<span style="color:#f92672">.</span>arange(s, <span style="color:#ae81ff">256</span>) <span style="color:#f92672">*</span> freq[s:] ) <span style="color:#f92672">/</span> w2
+            var[s] <span style="color:#f92672">=</span> w1 <span style="color:#f92672">*</span> w2 <span style="color:#f92672">*</span> ((mu1 <span style="color:#f92672">-</span> mu2)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)
+    
+    <span style="color:#66d9ef">return</span> var
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">var <span style="color:#f92672">=</span> interclass_var(bw_img)
+plt<span style="color:#f92672">.</span>plot(var)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Otku&#39;s Interclass variation&#34;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="./Image%20Segmentation%20Techniques_18_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>argmax(var)
+</code></pre></div><pre><code>78
+</code></pre>
+<p>It seems that 78 is the proper threshold where the interclass variance is maximized. So, let us take a look how the segmentation is for only one threshold equal to 78.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">thres <span style="color:#f92672">=</span> [<span style="color:#ae81ff">78</span>]
+
+fig, plots <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>, figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">5</span>))     <span style="color:#75715e"># subplot with 1 row, 2 columns</span>
+
+<span style="color:#75715e"># subplot 1</span>
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>imshow(bw_img, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Original Image&#39;</span>)
+
+<span style="color:#75715e"># subplot 2</span>
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>imshow(segment(bw_img, thres), cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Segment with threshold = 78&#39;</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="./Image%20Segmentation%20Techniques_21_1.png" alt="png"></p>
+<p>We see that, the segmentation looks pretty good for just two shades of gray. However, it would have been better if the background was given a different shade from <a href="https://en.wikipedia.org/wiki/Lisa_del_Giocondo">Lisa del Giocondo</a>, the possible model for Mona Lisa. However, since in the original picture, they both have similar shades of gray, we cannot do it just based on the histogram of colour intensities. So, we need to account for spatial information as well.</p>
+<p>Let us see, how much this automatic thresholding give us in the colour image of Mona Lisa.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">var_r <span style="color:#f92672">=</span> interclass_var(col_img[:, :, <span style="color:#ae81ff">0</span>])
+var_g <span style="color:#f92672">=</span> interclass_var(col_img[:, :, <span style="color:#ae81ff">1</span>])
+var_b <span style="color:#f92672">=</span> interclass_var(col_img[:, :, <span style="color:#ae81ff">2</span>])
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Threshold for R channel&#39;</span>, np<span style="color:#f92672">.</span>argmax(var_r))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Threshold for G channel&#39;</span>, np<span style="color:#f92672">.</span>argmax(var_g))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Threshold for B channel&#39;</span>, np<span style="color:#f92672">.</span>argmax(var_b))
+</code></pre></div><pre><code>Threshold for R channel 94
+Threshold for G channel 82
+Threshold for B channel 61
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Exactly same code as before</span>
+thres_R <span style="color:#f92672">=</span> [<span style="color:#ae81ff">94</span>]
+thres_G <span style="color:#f92672">=</span> [<span style="color:#ae81ff">82</span>]
+thres_B <span style="color:#f92672">=</span> [<span style="color:#ae81ff">61</span>]
+
+segment_R <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>expand_dims( segment(col_img[:, :, <span style="color:#ae81ff">0</span>], thres_R) , <span style="color:#ae81ff">2</span>)    <span style="color:#75715e"># apply segmentation and convert to 3d array</span>
+segment_G <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>expand_dims( segment(col_img[:, :, <span style="color:#ae81ff">1</span>], thres_G) , <span style="color:#ae81ff">2</span>)
+segment_B <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>expand_dims( segment(col_img[:, :, <span style="color:#ae81ff">2</span>], thres_B) , <span style="color:#ae81ff">2</span>)
+
+segment_img <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>concatenate( (segment_R, segment_G, segment_B), axis <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+
+fig, plots <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">4</span>, figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">5</span>))     <span style="color:#75715e"># subplot with 1 row, 4 columns</span>
+
+<span style="color:#75715e"># subplot 1</span>
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>imshow(segment_R[:, :, <span style="color:#ae81ff">0</span>], cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Segmentation of R channel&#39;</span>)
+
+<span style="color:#75715e"># subplot 2</span>
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>imshow(segment_G[:, :, <span style="color:#ae81ff">0</span>], cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Segmentation of G channel&#39;</span>)
+
+<span style="color:#75715e"># subplot 3</span>
+plots[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>imshow(segment_B[:, :, <span style="color:#ae81ff">0</span>], cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Segmentation of B channel&#39;</span>)
+
+<span style="color:#75715e"># final image</span>
+plots[<span style="color:#ae81ff">3</span>]<span style="color:#f92672">.</span>imshow(segment_img)
+plots[<span style="color:#ae81ff">3</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Final segmentation of image&#39;</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="./Image%20Segmentation%20Techniques_24_1.png" alt="png"></p>
+<p>The final segmentation clearly segments all the regions, like background and the model. However, it is extremely noisy. So, otsu&rsquo;s automatic thresholding does not perform any better for colour images.</p>
+<h1 id="incorporating-spatial-information-co-occurence-matrix">Incorporating Spatial Information: Co-occurence Matrix</h1>
+<p>To incorporate spatial information, as well as consider the intensity values of the image, there is a popular notion of Co-occurence matrix. As the name suggests, it captures how many times two intensity levels $i$ and $j$ appear spatially together in the image, and put that frequency in $(i, j)$-th cell of the matrix.</p>
+<p>For example, the $(a, b)$-th entry of the co-occurence matrix is the frequency of the number of times, when $a$ appears at a pixel location of the image, and the color $b$ appears at the specified offset from that pixel locations. Now, if the offset is set to be $(1, 0)$, then it means the number of times the pixel intensities $(a, b)$ appear side by side horizontally in this order is given by the $(a, b)$-th element of the co-occurence matrix.</p>
+<p>So, let us create a function which computes the co-occurence matrix for us.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Create co-occurence matrix</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">CCM</span>(img, offset):
+    comat <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros((<span style="color:#ae81ff">256</span>, <span style="color:#ae81ff">256</span>))
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(img<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">-</span> offset[<span style="color:#ae81ff">0</span>]):
+        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(img<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> offset[<span style="color:#ae81ff">1</span>]):
+            comat[img[i, j], img[i <span style="color:#f92672">+</span> offset[<span style="color:#ae81ff">0</span>], j <span style="color:#f92672">+</span> offset[<span style="color:#ae81ff">1</span>]] ] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">return</span>(comat)
+</code></pre></div><p>Now that we have our co-occurence matrix, consider a specified threshold $s$. Then, the $256\times 256$ order co-occurence matrix can be partitioned into $4$ parts as follows;</p>
+<p>$$
+\begin{bmatrix}
+A &amp; B\\\<br>
+C &amp; D
+\end{bmatrix}
+$$</p>
+<p>where $A$ is of order $s \times s$. Let, $a, b, c, d$ denotes the sum of the entries in partioned regions $A, B, C, D$ respectively. Clearly, if the threshold is selected as such so that background and foreground can be broken up nicely, then it means, the entries of $B$ and $C$ are going to be small. Since, they represent the number of times a background color changes to foreground color and vice-versa. Armed with this knowledge, two very simple measures we can propose.</p>
+<p>$$m_1 = \dfrac{b+c}{a + b + c + d}$$</p>
+<p>and another based on conditional probability;</p>
+<p>$$m_2 = \dfrac{1}{2} \left( \dfrac{b}{a+b} + \dfrac{c}{c+d} \right)$$</p>
+<p>Minimizing these disparity measures with respect to the choice of $s$, should give us a reasonably good segmentation.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">discre_measure</span>(comat, s):
+    a <span style="color:#f92672">=</span> comat[<span style="color:#ae81ff">0</span>:s, <span style="color:#ae81ff">0</span>:s]<span style="color:#f92672">.</span>sum()
+    b <span style="color:#f92672">=</span> comat[<span style="color:#ae81ff">0</span>:s, s:]<span style="color:#f92672">.</span>sum()
+    c <span style="color:#f92672">=</span> comat[s:, <span style="color:#ae81ff">0</span>:s]<span style="color:#f92672">.</span>sum()
+    d <span style="color:#f92672">=</span> comat[s:, s:]<span style="color:#f92672">.</span>sum()
+    
+    m1 <span style="color:#f92672">=</span> (b <span style="color:#f92672">+</span> c)<span style="color:#f92672">/</span>(a <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> c <span style="color:#f92672">+</span> d)
+    m2 <span style="color:#f92672">=</span> ((b <span style="color:#f92672">/</span> (a <span style="color:#f92672">+</span> b)) <span style="color:#f92672">+</span> (c <span style="color:#f92672">/</span> (c <span style="color:#f92672">+</span> d)) )<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>
+    
+    <span style="color:#66d9ef">return</span>((m1, m2))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">T_h <span style="color:#f92672">=</span> CCM(bw_img, offset <span style="color:#f92672">=</span> (<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>))   <span style="color:#75715e"># consider horizontal offset</span>
+T_v <span style="color:#f92672">=</span> CCM(bw_img, offset <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>))   <span style="color:#75715e"># consider vertical offset</span>
+T_hv <span style="color:#f92672">=</span> T_h <span style="color:#f92672">+</span> T_v   <span style="color:#75715e"># sum to obtain a good spatially informed co-occurence like matrix</span>
+</code></pre></div><p>Now we compute these measures for all thresholds from $0$ to $255$, and then plot their graphs in order to find the minimum of the objective function (or the measure)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">scores_m1 <span style="color:#f92672">=</span> []
+scores_m2 <span style="color:#f92672">=</span> []
+
+<span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">255</span>):
+    score <span style="color:#f92672">=</span> discre_measure(T_hv, s)
+    scores_m1<span style="color:#f92672">.</span>append( score[<span style="color:#ae81ff">0</span>] )
+    scores_m2<span style="color:#f92672">.</span>append( score[<span style="color:#ae81ff">1</span>] )
+    
+fig, plots <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>, figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">5</span>))     <span style="color:#75715e"># subplot with 1 row, 2 columns</span>
+
+<span style="color:#75715e"># subplot 1</span>
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>plot(scores_m1)
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Measure 1&#39;</span>)
+
+<span style="color:#75715e"># subplot 2</span>
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>plot(scores_m2)
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Measure 2&#39;</span>)
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_ylim([<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0.1</span>])
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="./Image%20Segmentation%20Techniques_31_1.png" alt="png"></p>
+<p>Now, there are several local minimas. Note that, using a global rule for obtaining the minimum value would possibly lead to a poor segmentation. Hence, we apply a moving window through the array of these scores, to find a value which is minimum in a window span of length $2K$, where $K$ is a choice by the user. Clearly, higher values of $K$ will lead to smaller number of segments, and lower values of $K$ will give higher number of segments. This moving minimum algorithm is implemented in the following piece of code.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">find_min</span>(scores, k <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>):
+    thresholds <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(k, len(scores) <span style="color:#f92672">-</span> k):
+        <span style="color:#66d9ef">if</span> min(scores[(i<span style="color:#f92672">-</span>k):(i<span style="color:#f92672">+</span>k)]) <span style="color:#f92672">==</span> scores[i]:
+            thresholds<span style="color:#f92672">.</span>append(i)
+    <span style="color:#66d9ef">return</span>(thresholds)
+</code></pre></div><p>Now, we consider the images segmentation for $k = 1, 3, 5, 10, 20$, firstly for Measure 1 and then for Measure 2.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, plots <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">5</span>, figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">5</span>))     <span style="color:#75715e"># subplot with 1 row, 5 columns</span>
+
+<span style="color:#75715e"># subplot 1</span>
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>imshow( segment(bw_img, find_min(scores_m1, k <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)) , cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;k = 1 ( Measure 1 )&#39;</span>)
+
+<span style="color:#75715e"># subplot 2</span>
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>imshow( segment(bw_img, find_min(scores_m1, k <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>)) , cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;k = 3 ( Measure 1 )&#39;</span>)
+
+<span style="color:#75715e"># subplot 3</span>
+plots[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>imshow( segment(bw_img, find_min(scores_m1, k <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>)) , cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;k = 5 ( Measure 1 )&#39;</span>)
+
+<span style="color:#75715e"># subplot 4</span>
+plots[<span style="color:#ae81ff">3</span>]<span style="color:#f92672">.</span>imshow( segment(bw_img, find_min(scores_m1, k <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>)) , cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">3</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;k = 10 ( Measure 1 )&#39;</span>)
+
+<span style="color:#75715e"># subplot 4</span>
+plots[<span style="color:#ae81ff">4</span>]<span style="color:#f92672">.</span>imshow( segment(bw_img, find_min(scores_m1, k <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>)) , cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">4</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;k = 20 ( Measure 1 )&#39;</span>)
+
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="./Image%20Segmentation%20Techniques_35_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, plots <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">5</span>, figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">5</span>))     <span style="color:#75715e"># subplot with 1 row, 5 columns</span>
+
+<span style="color:#75715e"># subplot 1</span>
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>imshow( segment(bw_img, find_min(scores_m2, k <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)) , cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;k = 1 ( Measure 2 )&#39;</span>)
+
+<span style="color:#75715e"># subplot 2</span>
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>imshow( segment(bw_img, find_min(scores_m2, k <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>)) , cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;k = 3 ( Measure 2 )&#39;</span>)
+
+<span style="color:#75715e"># subplot 3</span>
+plots[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>imshow( segment(bw_img, find_min(scores_m2, k <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>)) , cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;k = 5 ( Measure 2 )&#39;</span>)
+
+<span style="color:#75715e"># subplot 4</span>
+plots[<span style="color:#ae81ff">3</span>]<span style="color:#f92672">.</span>imshow( segment(bw_img, find_min(scores_m2, k <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>)) , cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">3</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;k = 10 ( Measure 2 )&#39;</span>)
+
+<span style="color:#75715e"># subplot 4</span>
+plots[<span style="color:#ae81ff">4</span>]<span style="color:#f92672">.</span>imshow( segment(bw_img, find_min(scores_m2, k <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>)) , cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">4</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;k = 20 ( Measure 2 )&#39;</span>)
+
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="./Image%20Segmentation%20Techniques_36_1.png" alt="png"></p>
+<p>It looks like for $k = 10$, with measure 1 and for $k = 20$ with meausre 2, we have similar kind of segmentation of the image. However, with measure 2, $k = 20$, the segmentation looks much clearer and ideal, as there are light noises to the background, and almost no noises in definiting the edge of the clothings of the model from the background.</p>
+<p>Now, let us inspect how does the thresholds found by this algorithm maps to the co-occurence matrix.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cutoffs1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(find_min(scores_m1, k <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>))
+cutoffs2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(find_min(scores_m2, k <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>))
+
+fig, plots <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">5</span>))     <span style="color:#75715e"># subplot with 1 row, 2 columns</span>
+
+<span style="color:#75715e"># subplot 1</span>
+a <span style="color:#f92672">=</span> plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>imshow(np<span style="color:#f92672">.</span>log(T_hv))   <span style="color:#75715e"># take logarithm for ease of visualization</span>
+fig<span style="color:#f92672">.</span>colorbar(a, ax <span style="color:#f92672">=</span> plots[<span style="color:#ae81ff">0</span>])
+<span style="color:#66d9ef">for</span> cut <span style="color:#f92672">in</span> cutoffs1:
+    plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>plot( [cut, cut], [<span style="color:#ae81ff">255</span>, <span style="color:#ae81ff">0</span>] , <span style="color:#e6db74">&#34;r-&#34;</span>)
+    plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>plot( [<span style="color:#ae81ff">255</span>, <span style="color:#ae81ff">0</span>], [cut, cut], <span style="color:#e6db74">&#34;r-&#34;</span>)
+
+<span style="color:#75715e"># subplot 2</span>
+b <span style="color:#f92672">=</span> plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>imshow(np<span style="color:#f92672">.</span>log(T_hv))   <span style="color:#75715e"># take logarithm for ease of visualization</span>
+fig<span style="color:#f92672">.</span>colorbar(b, ax <span style="color:#f92672">=</span> plots[<span style="color:#ae81ff">1</span>])
+<span style="color:#66d9ef">for</span> cut <span style="color:#f92672">in</span> cutoffs2:
+    plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>plot( [cut, cut], [<span style="color:#ae81ff">255</span>, <span style="color:#ae81ff">0</span>] , <span style="color:#e6db74">&#34;r-&#34;</span>)
+    plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>plot( [<span style="color:#ae81ff">255</span>, <span style="color:#ae81ff">0</span>], [cut, cut], <span style="color:#e6db74">&#34;r-&#34;</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="./Image%20Segmentation%20Techniques_38_1.png" alt="png"></p>
+<p>As you can see, there are lots of unnecessary thresholds selected for measure1. However, then two principal thresholds selected by these methods are at about $25$ and at about $95$, which were the thresholds we picked at the very beginning just by looking at the thresholds. Even with the very basic tool such a histogram, and a little subjective evaluation, we could achieve a reasonable amount of segmentation.</p>
+<p>Now, let us try to apply this method on the colour image as well.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">T_hv_red <span style="color:#f92672">=</span> CCM(col_img[:, :, <span style="color:#ae81ff">0</span>], offset <span style="color:#f92672">=</span> (<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)) <span style="color:#f92672">+</span> CCM(col_img[:, :, <span style="color:#ae81ff">0</span>], offset <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>))
+T_hv_green <span style="color:#f92672">=</span> CCM(col_img[:, :, <span style="color:#ae81ff">1</span>], offset <span style="color:#f92672">=</span> (<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)) <span style="color:#f92672">+</span> CCM(col_img[:, :, <span style="color:#ae81ff">1</span>], offset <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>))
+T_hv_blue <span style="color:#f92672">=</span> CCM(col_img[:, :, <span style="color:#ae81ff">2</span>], offset <span style="color:#f92672">=</span> (<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)) <span style="color:#f92672">+</span> CCM(col_img[:, :, <span style="color:#ae81ff">2</span>], offset <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">scores_m1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros((<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">256</span>))
+scores_m2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros((<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">256</span>))
+
+<span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">255</span>):
+    score_red <span style="color:#f92672">=</span> discre_measure(T_hv_red, s)
+    score_green <span style="color:#f92672">=</span> discre_measure(T_hv_green, s)
+    score_blue <span style="color:#f92672">=</span> discre_measure(T_hv_blue, s)
+    
+    scores_m1[:, s] <span style="color:#f92672">=</span>  (score_red[<span style="color:#ae81ff">0</span>], score_green[<span style="color:#ae81ff">0</span>], score_blue[<span style="color:#ae81ff">0</span>])
+    scores_m2[:, s] <span style="color:#f92672">=</span>  (score_red[<span style="color:#ae81ff">1</span>], score_green[<span style="color:#ae81ff">1</span>], score_blue[<span style="color:#ae81ff">1</span>])
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, plots <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">5</span>))     <span style="color:#75715e"># subplot with 1 row, 2 columns</span>
+
+<span style="color:#75715e"># subplot 1</span>
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>plot(scores_m1[<span style="color:#ae81ff">0</span>, :], c <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;r&#39;</span>)
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>plot(scores_m1[<span style="color:#ae81ff">1</span>, :], c <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;g&#39;</span>)
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>plot(scores_m1[<span style="color:#ae81ff">2</span>, :], c <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;b&#39;</span>)
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Measure 1&#39;</span>)
+
+<span style="color:#75715e"># subplot 2</span>
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>plot(scores_m2[<span style="color:#ae81ff">0</span>, :], c <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;r&#39;</span>)
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>plot(scores_m2[<span style="color:#ae81ff">1</span>, :], c <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;g&#39;</span>)
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>plot(scores_m2[<span style="color:#ae81ff">2</span>, :], c <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;b&#39;</span>)
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Measure 2&#39;</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="./Image%20Segmentation%20Techniques_42_0.png" alt="png"></p>
+<p>Note that, for Red and Blue channel, the 2nd measure gives prominent minimums, while for the  Green channel, the prominent minima is obtained by the first measure. Therefore, with some custom tweaking of $K$ and the which measure to choose, you can get a segmentation which is better than methods discussed previously, just because it uses the spatial information, which connects these three channels together.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Exactly same code as before</span>
+thres_R <span style="color:#f92672">=</span> find_min(scores_m2[<span style="color:#ae81ff">0</span>, :], k <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>)
+thres_G <span style="color:#f92672">=</span> find_min(scores_m1[<span style="color:#ae81ff">1</span>, :], k <span style="color:#f92672">=</span> <span style="color:#ae81ff">25</span>)
+thres_B <span style="color:#f92672">=</span> find_min(scores_m2[<span style="color:#ae81ff">2</span>, :], k <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>)
+
+segment_R <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>expand_dims( segment(col_img[:, :, <span style="color:#ae81ff">0</span>], thres_R) , <span style="color:#ae81ff">2</span>)    <span style="color:#75715e"># apply segmentation and convert to 3d array</span>
+segment_G <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>expand_dims( segment(col_img[:, :, <span style="color:#ae81ff">1</span>], thres_G) , <span style="color:#ae81ff">2</span>)
+segment_B <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>expand_dims( segment(col_img[:, :, <span style="color:#ae81ff">2</span>], thres_B) , <span style="color:#ae81ff">2</span>)
+
+segment_img <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>concatenate( (segment_R, segment_G, segment_B), axis <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+
+fig, plots <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">4</span>, figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">5</span>))     <span style="color:#75715e"># subplot with 1 row, 4 columns</span>
+
+<span style="color:#75715e"># subplot 1</span>
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>imshow(segment_R[:, :, <span style="color:#ae81ff">0</span>], cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Segmentation of R channel&#39;</span>)
+
+<span style="color:#75715e"># subplot 2</span>
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>imshow(segment_G[:, :, <span style="color:#ae81ff">0</span>], cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Segmentation of G channel&#39;</span>)
+
+<span style="color:#75715e"># subplot 3</span>
+plots[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>imshow(segment_B[:, :, <span style="color:#ae81ff">0</span>], cmap <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gray&#39;</span>)
+plots[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Segmentation of B channel&#39;</span>)
+
+<span style="color:#75715e"># final image</span>
+plots[<span style="color:#ae81ff">3</span>]<span style="color:#f92672">.</span>imshow(segment_img)
+plots[<span style="color:#ae81ff">3</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Final segmentation of image&#39;</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="./Image%20Segmentation%20Techniques_44_1.png" alt="png"></p>
+<p>As it seems, the final segmented image looks better than the previous ones. Note that,</p>
+<ul>
+<li>The sky is coloured green, (since the green channel was able to capture that properly)</li>
+<li>The visible first layer of background, which is the valley, is coloured blue, as blue channel properly captures that.</li>
+<li>The visible second layer of background, which constitutes what is possibly iceberg (or some rivers) is captures in the red channel (and hence is of brown colour in the final segmentation).</li>
+<li>The skin of Mona Lisa is capture in red and green channel, and slightly by blue channel, which mixes up to give a different tone for the skin.</li>
+<li>The dark clothing is not captured through any of the channel segmentation, hence remains dark in the final outcome.</li>
+</ul>
+<p>The following are some references if you wish to boost up your knowledge and learn subtle details of the algorithms presented above.</p>
+<h1 id="references">References</h1>
+<ol>
+<li>
+<p>F. Deravi and S.K. Pal, &ldquo;Gray Level Thresholding Using Second-order Statistics&rdquo;, Pattern Recogn. Letters, vol. 1, pp.417-422, 1983. <a href="https://www.isical.ac.in/~sankar/paper/pdf21.pdf">PDF</a>.</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Thresholding_(image_processing)">Wikipedia article Thresholding (image processing).</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Otsu%27s_method">Wikipedia article Otsu&rsquo;s Method</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Image_segmentation">Wikipedia article Image Segmentation</a></p>
+</li>
+<li>
+<p>Linda G. Shapiro and George C. Stockman (2001): “Computer Vision”, pp 279-325, New Jersey, Prentice-Hall, ISBN 0-13-030796-3 <a href="http://nana.lecturer.pens.ac.id/index_files/referensi/computer_vision/Computer%20Vision.pdf">PDF</a></p>
+</li>
+</ol>
+<p><strong>Note:</strong> <em>The model, Lisa del Giocondo, was a member of the Gherardini family of Florence and Tuscany, and the wife of wealthy Florentine silk merchant Francesco del Giocondo. The Italian name for the painting, La Gioconda, means &lsquo;jocund&rsquo; (&lsquo;happy&rsquo; or &lsquo;jovial&rsquo;) or, literally, &lsquo;the jocund one&rsquo;, a pun on the feminine form of Lisa&rsquo;s married name, Giocondo. In French, the title La Joconde has the same meaning, i.e. to become happy. ~ Wikipedia</em></p>
+<p>&amp; Finally, stay safe and keep safe your families, friends and neighbours!</p>
+
+        </div>
+        
+    </div>
+    <div class="container mx-auto my-3">
+        <hr/>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-8 mx-auto text-center">
+            
+            <div class="lead">Did you find this post helpful?</div>
+            
+            <h4>Consider sharing it! &#128516; </h4>
+
+            
+            <div class="share-buttons d-flex justify-content-around">
+                
+                
+                <a href="https://bufferapp.com/add?url=%2fblog%2fimage-segment-intro%2f&amp;text=An%20Introduction%20to%20Image%20Segmentation%20Techniques" target="_blank">
+                    <img src="/img/social-icons/buffer.png" alt="Buffer" />
+                </a>
+                
+                
+                <a href="http://www.digg.com/submit?url=%2fblog%2fimage-segment-intro%2f" target="_blank">
+                    <img src="/img/social-icons/diggit.png" alt="Digg" />
+                </a>
+                
+                
+                <a href="mailto:?Subject=An%20Introduction%20to%20Image%20Segmentation%20Techniques&amp;Body=I%20saw%20this%20and%20found%20interesting!%20 %2fblog%2fimage-segment-intro%2f">
+                    <img src="/img/social-icons/email.png" alt="Email" />
+                </a>
+            
+                
+                <a href="http://www.facebook.com/sharer.php?u=%2fblog%2fimage-segment-intro%2f" target="_blank">
+                    <img src="/img/social-icons/facebook.png" alt="Facebook" />
+                </a>
+                
+                
+                <a href="https://plus.google.com/share?url=%2fblog%2fimage-segment-intro%2f" target="_blank">
+                    <img src="/img/social-icons/google.png" alt="Google" />
+                </a>
+                
+                
+                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=%2fblog%2fimage-segment-intro%2f" target="_blank">
+                    <img src="/img/social-icons/linkedin.png" alt="LinkedIn" />
+                </a>
+                
+                
+                <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+                    <img src="/img/social-icons/pinterest.png" alt="Pinterest" />
+                </a>
+                
+                
+                <a href="javascript:;" onclick="window.print()">
+                    <img src="/img/social-icons/print.png" alt="Print" />
+                </a>
+                
+                
+                <a href="http://reddit.com/submit?url=%2fblog%2fimage-segment-intro%2f&amp;title=An%20Introduction%20to%20Image%20Segmentation%20Techniques" target="_blank">
+                    <img src="/img/social-icons/reddit.png" alt="Reddit" />
+                </a>
+                
+                
+                <a href="http://www.stumbleupon.com/submit?url=%2fblog%2fimage-segment-intro%2f&amp;title=An%20Introduction%20to%20Image%20Segmentation%20Techniques" target="_blank">
+                    <img src="/img/social-icons/stumbleupon.png" alt="StumbleUpon" />
+                </a>
+                
+                
+                <a href="http://www.tumblr.com/share/link?url=%2fblog%2fimage-segment-intro%2f&amp;title=An%20Introduction%20to%20Image%20Segmentation%20Techniques" target="_blank">
+                    <img src="/img/social-icons/tumblr.png" alt="Tumblr" />
+                </a>
+                
+                
+                <a href="https://twitter.com/share?url=%2fblog%2fimage-segment-intro%2f&amp;text=An%20Introduction%20to%20Image%20Segmentation%20Techniques" target="_blank">
+                    <img src="/img/social-icons/twitter.png" alt="Twitter" />
+                </a>
+                
+                
+                <a href="http://vkontakte.ru/share.php?url=%2fblog%2fimage-segment-intro%2f" target="_blank">
+                    <img src="/img/social-icons/vk.png" alt="VK" />
+                </a>
+                
+                
+                <a href="http://www.yummly.com/urb/verify?url=%2fblog%2fimage-segment-intro%2f&amp;title=An%20Introduction%20to%20Image%20Segmentation%20Techniques" target="_blank">
+                    <img src="/img/social-icons/yummly.png" alt="Yummly" />
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row mt-5 mb-5 pb-5">
+        <div class="col-md-2"></div>
+        
+        
+            <div class="col-md-3"><a href = "/blog/differential-geometry-intro/" class = "btn btn-success btn-block mb-3"> Previous post </a></div>
+        
+
+        <div class="col-md-2"></div>
+        
+        
+            <div class="col-md-3"><a href = "/blog/sir/" class = "btn btn-success btn-block mb-3"> Next post </a></div>
+        
+
+        <div class="col-md-2"></div>
+    </div>
+
+    
+    </div>
+    
+    
+
+<footer class="alert alert-dark pt-4 text-center" role="alert">
+    
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://subroy13.github.io" class = "alert-link"> SubRoy13's Personal Website</a>
+    </div>
+    
+    
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.5.2/mermaid.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+
+
+<script src="/js/main.js"></script>
+
+
+    
+</body>
+</html>

@@ -22,19 +22,19 @@
     
     <item>
       <title>eSIR - An Epidemiological Model incoportating quarantining effect</title>
-      <link>/posts/post7/</link>
+      <link>/blog/esir/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/posts/post7/</guid>
+      <guid>/blog/esir/</guid>
       <description>This is the second post in a series of posts to give a basic understanding of statistical modelling of epidemiology. In this post, we shall explore the performance of stochastic eSIR model. Then, we shall use it to generate projections for the epidemic situation in India.</description>
     </item>
     
     <item>
       <title>SIR Modelling of COVID-19 Pandemic situation</title>
-      <link>/posts/post6/</link>
+      <link>/blog/sir/</link>
       <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/posts/post6/</guid>
+      <guid>/blog/sir/</guid>
       <description>This is a post to give a basic understanding of statistical modelling of epidemiology. In this post, we shall explore the performance of deterministic SIR model which to be fitted using a least squares procedure. Then, we shall use it to generate projections for the epidemic situation in India</description>
     </item>
     

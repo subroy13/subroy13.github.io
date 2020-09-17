@@ -93,22 +93,22 @@
   </url>
   
   <url>
-    <loc>/posts/post7/</loc>
+    <loc>/blog/esir/</loc>
     <lastmod>2020-03-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/</loc>
+    <loc>/blog/</loc>
     <lastmod>2020-03-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/post6/</loc>
+    <loc>/blog/sir/</loc>
     <lastmod>2020-03-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/post5/</loc>
+    <loc>/blog/image-segment-intro/</loc>
     <lastmod>2020-03-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -133,7 +133,7 @@
   </url>
   
   <url>
-    <loc>/posts/post4/</loc>
+    <loc>/blog/differential-geometry-intro/</loc>
     <lastmod>2020-01-31T00:00:00+00:00</lastmod>
   </url>
   
@@ -163,7 +163,7 @@
   </url>
   
   <url>
-    <loc>/posts/post3/</loc>
+    <loc>/blog/texture-network/</loc>
     <lastmod>2020-01-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -178,13 +178,8 @@
   </url>
   
   <url>
-    <loc>/posts/post2/</loc>
+    <loc>/blog/integral-calculus-notes/</loc>
     <lastmod>2019-12-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/post1/</loc>
-    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -215,6 +210,21 @@
   <url>
     <loc>/projects/text-pred-app/</loc>
     <lastmod>2018-11-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/doshomi/</loc>
+    <lastmod>2016-01-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/tikit/</loc>
+    <lastmod>2016-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/yugantar/</loc>
+    <lastmod>2016-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>

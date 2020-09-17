@@ -1,3 +1,9 @@
+@font-face {
+    font-family: Kalpurush;
+    src: url('/fonts/Kalpurush/Kalpurush-Regular.ttf');
+}
+
+
 /* POST LIST OBJECT STYLES */
 
 .calendarShow {
@@ -43,4 +49,22 @@
 
 .monthShow > h4 {
     align-self: center;
+}
+
+
+/* STORY LINK STYLE */
+.comb-link {
+    font-size: 2rem;
+    text-decoration: none;
+    color: brown;
+}
+
+
+.comb-link:hover {
+    color:black;
+    text-decoration: none;
+}
+
+.font-bengali {
+    font-family: 'Kalpurush';
 }

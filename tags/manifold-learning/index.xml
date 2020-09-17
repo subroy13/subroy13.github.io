@@ -13,20 +13,11 @@
     
     <item>
       <title>Intuitive Introduction to Differential Geometry</title>
-      <link>/posts/post4/</link>
+      <link>/blog/differential-geometry-intro/</link>
       <pubDate>Fri, 31 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/posts/post4/</guid>
+      <guid>/blog/differential-geometry-intro/</guid>
       <description>In this post I talk about some interesting ways to expand the view of Euclidean or Co-ordinate geometry, by introducing the notion of Differential Geometry.</description>
-    </item>
-    
-    <item>
-      <title>t-SNE: A way to Visualize Multidimensional Dataset</title>
-      <link>/posts/post1/</link>
-      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/post1/</guid>
-      <description>This post is regarding a presentation that I gave associated with D. Basu memorial lecture series.</description>
     </item>
     
   </channel>

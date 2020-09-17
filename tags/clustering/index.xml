@@ -22,20 +22,11 @@
     
     <item>
       <title>An Introduction to Image Segmentation Techniques</title>
-      <link>/posts/post5/</link>
+      <link>/blog/image-segment-intro/</link>
       <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/posts/post5/</guid>
+      <guid>/blog/image-segment-intro/</guid>
       <description>This is post containing a very basic introduction to image segmentation. Here I discuss about gray level thresholding, Otsu&amp;rsquo;s method and Gray level thresholding using Co-occurence matrix</description>
-    </item>
-    
-    <item>
-      <title>t-SNE: A way to Visualize Multidimensional Dataset</title>
-      <link>/posts/post1/</link>
-      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/post1/</guid>
-      <description>This post is regarding a presentation that I gave associated with D. Basu memorial lecture series.</description>
     </item>
     
     <item>
