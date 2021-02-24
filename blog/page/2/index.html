@@ -46,11 +46,8 @@
     
     <link rel="stylesheet" href="/css/listPostStyle.css">
     <link rel="stylesheet" href="/css/paginatorStyle.css">
-    <link rel="stylesheet" href="/homeycombs/css/homeycombs.css">
 
-    
-    <script src="/homeycombs/js/jquery.homeycombs.js"></script>
-
+     
 </head>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top navbar-light">
@@ -72,6 +69,10 @@
         
         <li class="nav-item active m-3">
           <a class="nav-link" href="/blog/"> <span> <i class="fa fa-edit"></i></span> Blog </a>
+        </li>
+        
+        <li class="nav-item active m-3">
+          <a class="nav-link" href="/3darts/"> <span> <i class="fas fa-cubes"></i></span> 3D Arts </a>
         </li>
         
         <li class="nav-item active m-3">
@@ -116,46 +117,6 @@
 </div>
 
 <div class="container mb-5">
-    <h1 class = "text-center">My Blogposts</h1>
-    
-    
-    
-    <div class="row mt-5 mb-5">
-        <div class="col-md-2 calendarShow">
-            <div class="p-2 dayShow">
-                <h1>13</h1>
-            </div>
-            <div class="p-2 monthShow">
-                <h4>Jan, 2020</h4>
-            </div>
-        </div>
-        <div class="col-md-10">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Texture Networks</h4>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-10 text-justify">
-                            <p>
-                                
-                                    This post talks about a neural network approach to synthesize textures and performing Neural Style Transfer, the art of mixing the content of a picture with the style from another picture.
-                                
-                            </p>
-                        </div>
-                        <div class="col-md-2">
-                            
-                                <img src="/blog/texture-network/featured.png" width = "100%" class = "rounded">
-                            
-                        </div>
-                    </div>
-                    <a href="/blog/texture-network/" class="btn btn-success">See more</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
     
     <div class="row mt-5 mb-5">
         <div class="col-md-2 calendarShow">
@@ -193,7 +154,6 @@
     </div>
     
     
-    
 
 
 
@@ -227,61 +187,6 @@
 
 </div>
 
-<hr/>
-<div class="container mb-5">
-    <h1 class = "text-center">Some Stories</h1>
-    <p class="lead text-center mb-4">Click over the honeycombs to explore...</p>
-    <div class="honeycombs">
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-            <div class="comb">
-                <img src = "" class = "comb-img">
-                <span><a href = "/blog/highway/" class = 'comb-link font-bengali'>হাইওয়ে</a></span>
-            </div>
-        
-        
-        
-            <div class="comb">
-                <img src = "" class = "comb-img">
-                <span><a href = "/blog/doshomi/" class = 'comb-link font-bengali'>দশমী</a></span>
-            </div>
-        
-        
-        
-            <div class="comb">
-                <img src = "" class = "comb-img">
-                <span><a href = "/blog/yugantar/" class = 'comb-link font-bengali'>যুগান্তর</a></span>
-            </div>
-        
-        
-        
-            <div class="comb">
-                <img src = "" class = "comb-img">
-                <span><a href = "/blog/vuto/" class = 'comb-link font-bengali'>ভুতো</a></span>
-            </div>
-        
-        
-        
-            <div class="comb">
-                <img src = "" class = "comb-img">
-                <span><a href = "/blog/tikit/" class = 'comb-link font-bengali'>টিকিট</a></span>
-            </div>
-        
-            
-    </div>    
-</div>
     
     </div>
     
@@ -308,19 +213,5 @@
 
 
     
-    <script>
-        $(document).ready(function(){
-            $('.comb-img').each(function(i, elem){
-                var image_path = '/homeycombs/img-honeycombs/' + (i%2) + '.jpg';
-                $(elem).attr('src', image_path);
-            });
-
-            $('.honeycombs').honeycombs({
-                combWidth: 150,
-                margin: 5,
-            });
-        });
-    </script>
-
 </body>
 </html>

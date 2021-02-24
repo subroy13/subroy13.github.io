@@ -70,3 +70,29 @@
 #contact-card {
     box-shadow: 1px 1px 5px black;
 }
+
+
+.threedart > .col-md-6 {
+    background: url('/img/blender_cover.jpg');
+    background-size: cover;
+    height: 400px;
+    background-attachment: fixed;
+    background-color: #343434;
+    background-blend-mode: overlay;
+}
+
+.threedart > .col-md-6 > h1 {
+    color: white;
+}
+
+.threedart > .col-md-6 > .card {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.threedart > .col-md-6 > .card  .flex-column {
+    max-height: 200px;
+    margin: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+}

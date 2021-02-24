@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pollution Analysis on SR&#39;s Website</title>
+    <link>/tags/pollution-analysis/</link>
+    <description>Recent content in Pollution Analysis on SR&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Nov 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/pollution-analysis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Analysis of Pollution Patterns in Regions of Kolkata</title>
+      <link>/publications/pollution-analysis-kolkata/</link>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/publications/pollution-analysis-kolkata/</guid>
+      <description>This article analyzes the pollution patterns of Kolkata based on an extensive historical data of more than 15 years. The analysis focus on interpreting general patterns present in pollution and a prediction methodology, which may be used to calibrate low-cost pollution monitoring sensors.</description>
+    </item>
+    
+  </channel>
+</rss>
