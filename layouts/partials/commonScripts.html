@@ -1,0 +1,26 @@
+<script>
+    $(document).ready(function(){
+    
+        // scrolling function
+        $(window).scroll(function(){
+            var scrollHeight = $(window).scrollTop();
+
+            if (scrollHeight > 20) {
+                // create scrolltop button
+            } else {
+                // dont display scrolltop button     
+            }
+        
+        });
+
+        // nav menu open / close
+        $('#mobile-menu-button').click(() => {
+            $('#mobile-menu').toggleClass('hidden');
+            $('#mobile-menu-close-icon').toggleClass('hidden');
+            $('#mobile-menu-close-icon').toggleClass('block');
+            $('#mobile-menu-open-icon').toggleClass('hidden');
+            $('#mobile-menu-open-icon').toggleClass('block');
+        })
+    })
+</script>
+<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>

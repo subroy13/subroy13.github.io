@@ -1,0 +1,16 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Subhrajyoty Roy"
+paginate = 10
+disqusShortname = "subroy13"
+publishDir = "docs"
+
+
+[markup.goldmark.renderer]
+  unsafe= true
+
+[taxonomies]
+  tag = "tags"
+
+
+

@@ -1,0 +1,38 @@
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<script src="https://kit.fontawesome.com/ca14d5004b.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+
+
+<!-- JQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- TailwindCSS -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+<script src="https://cdn.tailwindcss.com"></script> -->
+
+<!-- Common CSS -->
+<link rel="stylesheet" href="/css/main.css">
+
+{{ $css := resources.Get "/css/output.css" | fingerprint "md5" }}
+<link rel="stylesheet" type="text/css" href="{{ $css.Permalink }}" />
+<link rel="stylesheet" href="/css/paginatorStyle.css">
+
+
+<!-- Mathjax CDN -->
+<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+

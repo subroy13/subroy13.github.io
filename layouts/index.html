@@ -1,0 +1,37 @@
+{{ define "main" }}
+
+<section>
+    <div class="grid grid-cols-3 gap-4">
+        <div class="col-span-1 bg-gray-100">
+            <div class="shadow-sm border-2 rounded-md bg-white p-4 m-4">
+                <h1 class="text-2xl font-semibold text-blue-600">
+                    Hi, I am Subhrajyoty Roy
+                </h1>
+                <p>
+                    This is an archive repository for showcasing 
+                    a curated list of my projects.
+                </p>
+                <div>
+                    Please check out my primary website 
+                    <a href="https://www.statwizard.in" target="_blank" class="underline hover:text-blue-600 focus:text-blue-600">
+                        https://www.statwizard.in
+                    </a>
+                    for more interesting contents.
+                </div>
+            </div>
+        </div>
+        <div class="col-span-2 grid grid-cols-2 gap-4 grid-flow-row-dense pt-4">
+            <!-- RSVDDPD Homepage -->
+            <div class="bg-gray-100 p-4 h-[150px] rounded-md shadow-md border-2 border-black">
+                <a class="text-black hover:underline font-semibold text-lg" href="{{ .Site.BaseURL }}/rsvddpd-home">
+                    rSVDdpd Home
+                </a>
+                <p>
+                    This is a supporting webpage for the paper [A New Robust Scalable Singular Value Decomposition Algorithm for Video Surveillance Background Modelling](https://arxiv.org/abs/2109.10680) 
+                </p>
+            </div>            
+        </div>
+    </div>
+</section>
+
+{{ end }}

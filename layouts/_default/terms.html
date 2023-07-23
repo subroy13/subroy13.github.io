@@ -1,0 +1,33 @@
+{{ define "title" }}
+    All Tags
+{{ end }}
+
+
+{{ define "main" }}
+<section class="mx-4 md:mx-auto max-w-6xl my-8 grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+    <div class="flex flex-col">
+        <h1 class="italic font-semibold text-blue-600 text-xl">
+            I have... 
+         </h1>
+         <div class="text-left text-neutral-800">
+             {{ range .Data.Terms }}
+                {{ if (eq .Count 1) }}
+                    <p>
+                        {{ .Count }} work on <a class="text-blue-600 cursor-pointer hover:text-blue-800 hover:underline transition ease-in-out" href="{{ .Page.Permalink }}"> {{ .Page.Title }}</a>
+                    </p>
+                {{ else }}
+                    <p>
+                        {{ .Count }} works on <a class="text-blue-600 cursor-pointer hover:text-blue-800 hover:underline transition ease-in-out" href="{{ .Page.Permalink }}"> {{ .Page.Title }}</a>
+                    </p>
+                {{ end }}
+             {{ end }}
+         </div>     
+    </div>
+    <div>
+        <img src="/svg/indiv-think.svg" 
+            class="w-[80%] mx-auto"
+        />
+    </div>
+</section>
+
+{{ end }}

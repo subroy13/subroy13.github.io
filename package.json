@@ -1,0 +1,32 @@
+{
+  "name": "subroy13.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev:css": "npx tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --jit",
+    "dev:hugo": "hugo server",
+    "dev": "hugo && npm run dev:css && npm run dev:hugo",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subroy13/subroy13.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/subroy13/subroy13.github.io/issues"
+  },
+  "homepage": "https://github.com/subroy13/subroy13.github.io#readme",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.2"
+  }
+}

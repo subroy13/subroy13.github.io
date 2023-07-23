@@ -1,0 +1,26 @@
+{{ define "title" }}
+    {{ .Title }}
+{{ end }}
+
+
+{{ define "main" }}
+
+<section class="mt-4 flex flex-row">
+    <div class="mx-4 md:mx-auto max-w-6xl mt-12 justify-center items-center border-2 rounded-md p-4 shadow-md">        
+        <h1 class="text-center text-2xl font-bold text-neutral-800">
+            Contact Me via
+        </h1>
+        <div class="mx-6">
+            {{ range .Params.social }}
+                <div class="flex flex-row gap-4 text-lg items-center my-2">
+                    <i class="fa-lg {{ .icon }} text-{{ .color }}"></i>
+                    <a href="{{ .link }}" class="text-black hover:underline focus:underline hover:text-blue-800 focus:text-blue-800">
+                        {{ .name }}
+                    </a>
+                </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+{{ end }}

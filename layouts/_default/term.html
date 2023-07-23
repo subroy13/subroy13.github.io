@@ -1,0 +1,46 @@
+{{ define "title" }}
+    Tag - {{ .Title }}
+{{ end }}
+
+{{ define "main" }}
+<section class="mx-4 md:mx-auto max-w-6xl my-8">
+    <h1 class="my-8 w-full text-center font-bold text-blue-600 text-2xl md:text-4xl">
+        Tag {{ .Title }}
+    </h1>
+    <div class="my-8 bg-neutral-50 flex flex-col gap-4 items-center justify-center">
+        {{ range .Paginator.Pages }}
+            <div class="w-full shadow-lg rounded-md border-2 bg-white p-4">
+                <div class="header flex flex-row justify-start items-center gap-4">
+                    <a  href="{{ .Permalink }}" class="text-blue-600 text-lg font-semibold cursor-pointer hover:text-blue-800 transition ease-in-out">
+                        {{ .Title }}
+                    </a>
+                    <p class="text-neutral-800 font-light flex flex-row items-center">
+                        <i class = "far fa-calendar-alt fa-2x mr-3"></i>{{ .Date.Format "January, 2006" }}
+                    </p>
+                </div>
+                <div class="mt-4 text-neutral-800 text-sm text-justify">
+                    {{ .Summary | markdownify }}
+                </div>
+                <div class="mt-4">
+                    <a 
+                        href="{{ .Permalink }}"
+                        class="py-2 px-6 bg-blue-600 text-white cursor-pointer hover:bg-blue-800 transition ease-in-out rounded-md shadow-sm"
+                    >
+                        See more
+                    </a>
+                </div>
+            </div>
+        {{ end }}
+        {{ partial "pagination.html" . }}
+    </div>
+    <div class="flex flex-row justify-center items-center">
+        <a 
+            href='{{ "/tags/" | relURL }}'
+            class="py-2 px-6 bg-blue-600 text-white cursor-pointer hover:bg-blue-800 transition ease-in-out rounded-md shadow-sm"
+        >
+            See the list of all tags
+        </a>
+    </div>
+</section>
+
+{{ end }}

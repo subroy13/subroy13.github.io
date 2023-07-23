@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/svg/avatar.svg">
+    <title>
+        
+    rSVDdpd Homepage
+
+    </title>
+
+    
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+
+
+<script src="https://kit.fontawesome.com/ca14d5004b.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" type="text/css" href="/css/output.aa827a689c42d8f088e73e884e6b9226.css" />
+<link rel="stylesheet" href="/css/paginatorStyle.css">
+
+
+
+<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+
+     
+     
+</head>
+<body>
+    <div class="app-container min-h-[100vh] flex flex-col justify-between">
+        <nav class="bg-white shadow-xl z-50">
+    
+    <div class="hidden mx-auto max-w-7xl py-4 px-4 md:px-6 lg:px-8 md:flex flex-row items-center">
+        <div class="w-[300px] flex items-center">
+            <a class="font-semibold text-2xl flex flex-row justify-center items-center gap-2"
+                href="/">
+                <img src="/svg/avatar.svg" class="w-[30px] h-[30px] inline-block rounded-full" />
+                <p>Subhrajyoty Roy</p>
+            </a>
+        </div>
+        <div class="w-full flex flex-row justify-end items-center gap-4">
+            <a href="//contact"
+                class="px-4 py-2 border rounded-lg hover:bg-gray-100 flex flex-row justify-center items-center gap-2">
+                <i class="fas fa-id-card"></i> Contact Me
+            </a>
+        </div>
+    </div>
+
+    
+    <div class="flex py-4 px-2 max-w-7xl flex-col gap-6 justify-end items-center md:hidden">
+        <div class="w-full flex justify-center items-center">
+            <a class="font-semibold text-2xl flex flex-row justify-center items-center gap-2"
+                href="/">
+                <img src="/svg/avatar.svg" class="w-[30px] h-[30px] inline-block rounded-full" />
+                <p>Subhrajyoty Roy</p>
+            </a>
+        </div>
+        <div class="px-4 sm:px-8 py-2 border first:rounded-t-lg last:rounded-b-lg hover:bg-gray-100">
+            <a href="//contact" class="flex flex-row justify-start gap-2">
+                <i class="fas fa-id-card"></i> Contact Me
+            </a>
+        </div>
+    </div>
+
+</nav>
+
+        <div class="container px-4 md:mx-auto">
+            
+<section class="p-4">
+    <div class="max-w-6xl mx-auto border-2 shadow-sm rounded-md p-6">
+        <h1 class="text-4xl font-bold">
+            rSVDdpd Homepage
+        </h1>
+        <p class="text-lg font-semibold text-neutral-600">
+            Robust Singular Value Decomposition using Density Power Divergence
+        </p>
+        <p class="text-blue-700">
+            This is a supporting webpage for the paper <a href="https://arxiv.org/abs/2109.10680">A New Robust Scalable Singular Value Decomposition Algorithm for Video Surveillance Background Modelling</a>
+        </p>
+    </div>
+
+    <div class="prose mt-4 max-w-none">
+        <h1 id="extended-abstract">Extended Abstract</h1>
+<p>A basic algorithmic task in automated video surveillance is to separate background and foreground objects. Camera
+tampering, noisy videos, low frame rate, etc., pose difficulties in solving the problem. A general approach that classifies the tampered
+frames, and performs subsequent analysis on the remaining frames after discarding the tampered ones, results in loss of information. If the ultimate goal is to perform background modelling, foreground object detection or motion detection etc., then it would be useful to have an algorithm that robustly performs background foreground separation from video surveillance data. Thus, considerable effort has been expended to solve this problem.</p>
+<ol>
+<li>
+<p>There is a class of statistical background modelling that assumes that the intensity of the pixel values corresponding to the background content is distributed according to a known probability distribution (Gaussian or Mixture of Gaussian). These algorithms are fast, but their performances are not so great.</p>
+</li>
+<li>
+<p>Background modelling based on deep neural network has also been performed. Usually a convolutional neural network with hundreds, thousands or millions of parameters with several layers of connection is built. These are fast for the inference, their performances are great, but they require an enormous amount of data and time for training.</p>
+</li>
+<li>
+<p>Recent approaches towards background modelling assumes a decomposition of the video data into a low rank matrix (corresponding to the background content) and a sparse or noisy matrix (corresponding to the foreground content). Matrix decomposition algorithms like robust PCA have been found to be useful here. However, these algorithms have high computational complexity, and performs a convex optimization problem which do not scale well for large scale real life video surveillance data. Also, an integral component of these foreground detection algorithms is singular value decomposition which is nonrobust.</p>
+</li>
+</ol>
+<p>In this paper, we aim to introduce a scalable, fast, efficient and robust singular value decomposition technique based on the popular minimum density power divergence estimator which naturally extends to a background modelling algorithm. We call this algorithm <code>rSVDdpd</code>. We also demonstrate the superiority of our proposed algorithm on a benchmark dataset (Background Models Challenge or BMC Dataset) and a new real-life video surveillance dataset (University of Houston Camera Tampering or UHCT Dataset) in presence of camera tampering.</p>
+<h1 id="codes">Codes</h1>
+<ul>
+<li>
+<p>The proposed <strong>rSVDdpd</strong> algorithm is made available in an <code>R</code> package <a href="https://cran.r-project.org/web/packages/rsvddpd/index.html"><code>rsvddpd</code></a>.</p>
+</li>
+<li>
+<p>A simple introductory tutorial for the package is also available in form of a vignette <a href="https://cran.r-project.org/web/packages/rsvddpd/vignettes/rSVDdpd-intro.html">Introduction to rSVDdpd</a>.</p>
+</li>
+<li>
+<p>Some of the sample codes are available <a href="./rsvddpd-scripts.tar.gz">here</a>.</p>
+</li>
+</ul>
+<h1 id="supplementary-materials">Supplementary Materials</h1>
+<ul>
+<li>The enlarged version of the figures presented in the paper <a href="https://arxiv.org/abs/2109.10680">A New Robust Scalable Singular Value Decomposition Algorithm for Video Surveillance Background Modelling</a> are available <a href="./paper-figures.tar.gz">here</a>.</li>
+</ul>
+<h2 id="bmc-dataset">BMC Dataset</h2>
+<p>The Background Modelling Challenger (BMC) Dataset is taken from <a href="http://backgroundmodelschallenge.eu/">http://backgroundmodelschallenge.eu/</a> containing some simulated video surveillance data with proper ground truth of foreground and background content. Here we demonstrate the original video, the ground truth mask along with the estimated foregrounds from different algorithms as follows.</p>
+<ul>
+<li><strong>SVD:</strong> Singular Value Decomposition of the Video Data Matrix.</li>
+<li><strong>rSVDdpd:</strong> The proposed Robust SVD using Density Power Divergence Algorithm. Reference <a href="https://arxiv.org/abs/2109.10680">https://arxiv.org/abs/2109.10680</a>.</li>
+<li><strong>Robust PCA:</strong> Robust Principal Component Analysis. Reference <a href="https://arxiv.org/abs/0912.3599">https://arxiv.org/abs/0912.3599</a>.</li>
+<li><strong>Inexact ALM:</strong> Inexact Augmented Lagrangian Method for Robust PCA. Reference <a href="https://doi.org/10.1080/10556788.2012.700713">https://doi.org/10.1080/10556788.2012.700713</a>.</li>
+<li><strong>SRPCP:</strong> Sparse Regularized Principal Component Pursuit. Reference <a href="http://code.ucsd.edu/~pcosman/Liu_2017-151.pdf">http://code.ucsd.edu/~pcosman/Liu_2017-151.pdf</a>.</li>
+<li><strong>VB:</strong> Variational Bayesian Method for Robust PCA. Reference <a href="https://doi.org/10.1109/TSP.2012.2197748">https://doi.org/10.1109/TSP.2012.2197748</a>.</li>
+<li><strong>OP:</strong> Outlier Pursuit Algorithm. Reference <a href="https://doi.org/10.1109/TIT.2011.2173156">https://doi.org/10.1109/TIT.2011.2173156</a>.</li>
+<li><strong>GoDec:</strong> Go Decomposition Algorithm. Reference <a href="https://dl.acm.org/doi/10.5555/3104482.3104487">https://dl.acm.org/doi/10.5555/3104482.3104487</a>.</li>
+</ul>
+<p>Following are the descriptions of the videos present in the dataset along with the experimental results.</p>
+<table>
+<thead>
+<tr>
+<th>Video</th>
+<th>Video Background</th>
+<th>Noise</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Video 112</td>
+<td>A street with moving cars</td>
+<td>Noiseless</td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/bmc/112.tar.gz">link</a></td>
+</tr>
+<tr>
+<td>Video 122</td>
+<td>A rotary with moving cars</td>
+<td>Noiseless</td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/bmc/122.tar.gz">link</a></td>
+</tr>
+<tr>
+<td>Video 212</td>
+<td>A street with moving cars</td>
+<td>Slight imperceptible noise in pixel values</td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/bmc/212.tar.gz">link</a></td>
+</tr>
+<tr>
+<td>Video 222</td>
+<td>A rotary with moving cars</td>
+<td>Slight imperceptible noise in pixel values</td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/bmc/222.tar.gz">link</a></td>
+</tr>
+<tr>
+<td>Video 312</td>
+<td>A street with moving cars</td>
+<td>Varying illumination due to the movement of the sun</td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/bmc/312.tar.gz">link</a></td>
+</tr>
+<tr>
+<td>Video 322</td>
+<td>A rotary with moving cars</td>
+<td>Varying illumination due to the movement of the sun</td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/bmc/322.tar.gz">link</a></td>
+</tr>
+<tr>
+<td>Video 412</td>
+<td>A street with moving cars</td>
+<td>Cloud and fog for a brief period</td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/bmc/412.tar.gz">link</a></td>
+</tr>
+<tr>
+<td>Video 422</td>
+<td>A rotary with moving cars</td>
+<td>Cloud and fog for a brief period</td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/bmc/422.tar.gz">link</a></td>
+</tr>
+<tr>
+<td>Video 512</td>
+<td>A street with moving cars</td>
+<td>Windy movement of the trees</td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/bmc/512.tar.gz">link</a></td>
+</tr>
+<tr>
+<td>Video 522</td>
+<td>A rotary with moving cars</td>
+<td>Windy movement of the trees</td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/bmc/522.tar.gz">link</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="uhct-dataset">UHCT Dataset</h2>
+<p>University of Houston Camera Tampering is a dataset collected from University of Houston&rsquo;s surveillance video footage data for two consecutive days across two cameras in the UH campus. Some frames of the videos have been synthentically tampered with noisy artifacts to emulate camera tampering. The dataset is taken from <a href="http://qil.uh.edu/main/datasets/">UHCTD: A Comprehensive Dataset for Camera Tampering Detection</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Video</th>
+<th>Description</th>
+<th>Original Video Link</th>
+<th>Results Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stream 1</td>
+<td>A small part of the video surveillance footage in Day 2 from Camera B in the UHCT Dataset. Some of the frames have been tampered with random image partially.</td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/uhctd/Stream1.mp4">link</a></td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/uhctd/stream1.tar.gz">link</a></td>
+</tr>
+<tr>
+<td>Stream 2</td>
+<td>A small part of the nighttime video surveillance footage in Day 1 from Camera A in the UHCT Dataset. Some of the frames have been tampered with random image partially.</td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/uhctd/Stream2.mp4">link</a></td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/uhctd/stream2.tar.gz">link</a></td>
+</tr>
+<tr>
+<td>Stream 3</td>
+<td>A small part of a daytime video surveillance footage in Day 1 from Camera A in the UHCT Dataset. Some of the frames have been tampered with random image partially. There is also presence of change in intensity and illumination due to the position of the sun.</td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/uhctd/Stream3.mp4">link</a></td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/uhctd/stream3.tar.gz">link</a></td>
+</tr>
+<tr>
+<td>Stream 4</td>
+<td>A small part of a daytime video surveillance footage in Day 2 from Camera A in the UHCT Dataset. After some time, the camera has been tampered by moving it to point in a different direction. A reliable foreground extraction and background modelling algorithm should be sensitive to this rapid change in background and should indicate the presence of camera tampering.</td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/uhctd/Stream4.mp4">link</a></td>
+<td><a href="https://curated-webrepo.s3.ap-south-1.amazonaws.com/rsvddpd-home/uhctd/stream4.tar.gz">link</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> The videos and the GIF have been compressed at an increased frame per second to save storage. Please convert it to a reduced frame per second video clip for better inspection.</p>
+<h1 id="references">References</h1>
+<p>Following are some useful references on various algorithms for background modelling.</p>
+<ol>
+<li><a href="https://sites.google.com/site/backgroundsubtraction">Background Subtraction Website</a></li>
+<li><a href="https://github.com/andrewssobral/lrslibrary">Low-Rank and Sparse Tools for Background Modeling and Subtraction in Videos</a></li>
+<li><a href="http://backgroundmodelschallenge.eu/">Background Models Challenge Dataset</a></li>
+<li><a href="http://qil.uh.edu/main/datasets/">UHCTD: A Comprehensive Dataset for Camera Tampering Detection</a></li>
+</ol>
+
+    </div>
+</section>
+
+
+        </div>
+
+        
+<footer class="bg-neutral-100 text-center text-neutral-900">
+    
+    <div class="bg-neutral-900 text-center px-0 py-4 w-full text-white">
+        © 2023 Copyright:
+        <a href="/">Subhrajyoty Roy</a>
+    </div>
+</footer>
+
+    </div>
+
+    <script>
+    $(document).ready(function(){
+    
+        
+        $(window).scroll(function(){
+            var scrollHeight = $(window).scrollTop();
+
+            if (scrollHeight > 20) {
+                
+            } else {
+                
+            }
+        
+        });
+
+        
+        $('#mobile-menu-button').click(() => {
+            $('#mobile-menu').toggleClass('hidden');
+            $('#mobile-menu-close-icon').toggleClass('hidden');
+            $('#mobile-menu-close-icon').toggleClass('block');
+            $('#mobile-menu-open-icon').toggleClass('hidden');
+            $('#mobile-menu-open-icon').toggleClass('block');
+        })
+    })
+</script>
+<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+
+     
+</body>
+</html>
