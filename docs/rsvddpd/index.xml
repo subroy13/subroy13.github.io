@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>rSVDdpd Homepage on Subhrajyoty Roy</title>
-    <link>https://subroy13.github.io/rsvddpd-home/</link>
+    <link>https://subroy13.github.io/rsvddpd/</link>
     <description>Recent content in rSVDdpd Homepage on Subhrajyoty Roy</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://subroy13.github.io/rsvddpd-home/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://subroy13.github.io/rsvddpd/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
